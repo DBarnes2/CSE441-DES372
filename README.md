@@ -2,6 +2,10 @@
 CSE441 &amp; DES372 class
 
 Names:
+
 Daniel
+
 Ariana
+
+Anita
 
