@@ -68,61 +68,74 @@ $.fn.animateRotate = function(angle, duration, easing, complete) {
 //   }
 // });
 
+
+
 // All custom jQuery will go here
 $(document).ready(function() {
   var arrow = {left: 37, up: 38, right: 39, down: 40 };
 
-  $("#map").animate({top: "-599%"}, 3000, function() {
-    console.log("finished move up");
+  function move_to(x = "-44%", y = "-697%") {
+    $("#map").animate({left: x, top: y}, 3000);
+    // alert("works" + x + " " + y);
+  }
+  move_to("-44%", "-599%");
+  move_to("34%", "-352%");
 
-    $(document).keydown(function (e) {
-      var keyCode = e.keyCode || e.which;
-      switch (keyCode) {
-        case arrow.right:
-          console.log("RIGHT");
-          $("#map").animate({left: "-333%"}, 3000);
-        break;
-        case arrow.left:
-          console.log("LEFT");
-          // $("#map").animate({left: "48%", top: ""}, 3000);
-          $("#map").animate({left: "34%", top: "-352%"}, 3000);
-        break;
-      }
-    });
+  // $("#map").animate({top: "-599%"}, 3000, function() {
+  //   console.log("finished move up");
 
-    $(document).keydown(function (e) {
-      var keyCode = e.keyCode || e.which;
-      switch (keyCode) {
-        case arrow.right:
-          console.log("RIGHT");
-          $("#map").animate({left: "-333%"}, 3000);
-        break;
-        case arrow.left:
-          console.log("LEFT");
-          // $("#map").animate({left: "48%", top: ""}, 3000);
-          $("#map").animate({left: "110%", top: "88%"}, 3000);
-        break;
-      }
-    });
 
-    $(document).keydown(function (e) {
-      var keyCode = e.keyCode || e.which;
-      switch (keyCode) {
-        case arrow.right:
-          console.log("RIGHT");
-          $("#map").animate({left: "45%", top:"221%"}, 3000);
-        break;
-        case arrow.left:
-          console.log("LEFT");
-          // $("#map").animate({left: "48%", top: ""}, 3000);
-          $("#map").animate({left: "110%", top: "88%"}, 3000);
-        break;
-      }
-    });
+  //   $(document).keydown(function (e) {
+  //     var keyCode = e.keyCode || e.which;
+  //     switch (keyCode) {
+  //       case arrow.right:
+  //         console.log("RIGHT");
+  //         $("#map").animate({left: "-333%"}, 3000);
+  //       break;
+  //       case arrow.left:
+  //         console.log("LEFT");
+  //         // $("#map").animate({left: "48%", top: ""}, 3000);
+  //         $("#map").animate({left: "34%", top: "-352%"}, 3000);
+  //       break;
+  //     }
+  //   });
 
+  //   $(document).keydown(function (e) {
+  //     var keyCode = e.keyCode || e.which;
+  //     switch (keyCode) {
+  //       case arrow.right:
+  //         console.log("RIGHT");
+  //         $("#map").animate({left: "-333%"}, 3000);
+  //       break;
+  //       case arrow.left:
+  //         console.log("LEFT");
+  //         // $("#map").animate({left: "48%", top: ""}, 3000);
+  //         $("#map").animate({left: "110%", top: "88%"}, 3000);
+  //       break;
+  //     }
+  //   });
+
+  //   // $(document).keydown(function (e) {
+  //   //   var keyCode = e.keyCode || e.which;
+  //   //   switch (keyCode) {
+  //   //     case arrow.right:
+  //   //       console.log("RIGHT");
+  //   //       $("#map").animate({left: "45%", top:"221%"}, 3000);
+  //   //     break;
+  //   //     case arrow.left:
+  //   //       console.log("LEFT");
+  //   //       // $("#map").animate({left: "48%", top: ""}, 3000);
+  //   //       $("#map").animate({left: "45%", top:"221%"}, 3000);
+  //   //     break;
+  //   //   }
+  //   // });
+
+  //   // $('#map').prepend('<img id="theImg" src="theImg.png" />')
+  //   $("#map").attr("src", img.attr("src").replace("trans2.png", "screen1.jpg"));
+  //   alert("end screen!");
     
-    
-  });
+  // });
+
   // $("#map").animate({top: "-100px", left: "100px"}, 3000, function() {
   //   console.log("finished moving up!");
   //   $('#map').animateRotate(90, 2000, "swing");
