@@ -84,7 +84,8 @@ $(document).ready(function() {
         break;
         case arrow.left:
           console.log("LEFT");
-          $("#map").animate({left: "48%"}, 3000);
+          // $("#map").animate({left: "48%", top: ""}, 3000);
+          $("#map").animate({left: "34%", top: "-352%"}, 3000);
         break;
       }
     });
