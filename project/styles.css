@@ -10,8 +10,11 @@ body {
 #map {
     position: absolute; 
     border: 1px solid blue;
-    transform: scale(6);
+    transform: scale(2);
     /* starting position for map */
-    top: -2507px; 
-    left: 853px;
+    /* top: -2507px; 
+    left: 853px; */
+
+    top: -697%; 
+    left: -44%;
 }
