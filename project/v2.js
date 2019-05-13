@@ -90,6 +90,36 @@ $(document).ready(function() {
       }
     });
 
+    $(document).keydown(function (e) {
+      var keyCode = e.keyCode || e.which;
+      switch (keyCode) {
+        case arrow.right:
+          console.log("RIGHT");
+          $("#map").animate({left: "-333%"}, 3000);
+        break;
+        case arrow.left:
+          console.log("LEFT");
+          // $("#map").animate({left: "48%", top: ""}, 3000);
+          $("#map").animate({left: "110%", top: "88%"}, 3000);
+        break;
+      }
+    });
+
+    $(document).keydown(function (e) {
+      var keyCode = e.keyCode || e.which;
+      switch (keyCode) {
+        case arrow.right:
+          console.log("RIGHT");
+          $("#map").animate({left: "45%", top:"221%"}, 3000);
+        break;
+        case arrow.left:
+          console.log("LEFT");
+          // $("#map").animate({left: "48%", top: ""}, 3000);
+          $("#map").animate({left: "110%", top: "88%"}, 3000);
+        break;
+      }
+    });
+
     
     
   });
