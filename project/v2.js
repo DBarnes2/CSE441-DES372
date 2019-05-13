@@ -49,13 +49,48 @@ $.fn.animateRotate = function(angle, duration, easing, complete) {
   });
 };
 
+// // Get keypress
+// $(document).keydown(function (e) {
+//   var keyCode = e.keyCode || e.which,
+//   arrow = {left: 37, up: 38, right: 39, down: 40 };
+
+//   switch (keyCode) {
+
+//       case arrow.left: 
+//         console.log("LEFT");
+//         $('#map').animate({"left": "-=1px"}, "slow");
+//       break;
+
+//       case arrow.right: 
+//         console.log("RIGHT");
+//         // $('#map').animate({"left": "+=1px"}, "slow");
+//       break;
+//   }
+// });
+
 // All custom jQuery will go here
 $(document).ready(function() {
+  var arrow = {left: 37, up: 38, right: 39, down: 40 };
+
   $("#map").animate({top: "-2000px"}, 3000, function() {
     console.log("finished move up");
-    $("#map").animate({left: "-50px"}, 3000, function() {
-      console.log("finished movie right")
+
+    $(document).keydown(function (e) {
+      var keyCode = e.keyCode || e.which;
+      switch (keyCode) {
+        case arrow.right:
+          console.log("RIGHT");
+          $("#map").animate({left: "50px"}, 3000);
+        break;
+        case arrow.left:
+          console.log("LEFT");
+          $("#map").animate({left: "-200px"}, 3000);
+        break;
+      }
     });
+
+    
+    
   });
   // $("#map").animate({top: "-100px", left: "100px"}, 3000, function() {
   //   console.log("finished moving up!");
