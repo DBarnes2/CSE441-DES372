@@ -72,7 +72,7 @@ $.fn.animateRotate = function(angle, duration, easing, complete) {
 $(document).ready(function() {
   var arrow = {left: 37, up: 38, right: 39, down: 40 };
 
-  $("#map").animate({top: "-567%"}, 3000, function() {
+  $("#map").animate({top: "-599%"}, 3000, function() {
     console.log("finished move up");
 
     $(document).keydown(function (e) {
