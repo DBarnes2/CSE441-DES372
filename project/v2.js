@@ -30,3 +30,37 @@ function keyPressed() {
       break;
   }
 }
+
+// Rotate plugin
+$.fn.animateRotate = function(angle, duration, easing, complete) {
+  return this.each(function() {
+    var $elem = $(this);
+
+    $({deg: 0}).animate({deg: angle}, {
+      duration: duration,
+      easing: easing,
+      step: function(now) {
+        $elem.css({
+           transform: 'rotate(' + now + 'deg)'
+         });
+      },
+      complete: complete || $.noop
+    });
+  });
+};
+
+// All custom jQuery will go here
+$(document).ready(function() {
+  $("#map").animate({top: "-2000px"}, 3000, function() {
+    console.log("finished move up");
+    $("#map").animate({left: "-50px"}, 3000, function() {
+      console.log("finished movie right")
+    });
+  });
+  // $("#map").animate({top: "-100px", left: "100px"}, 3000, function() {
+  //   console.log("finished moving up!");
+  //   $('#map').animateRotate(90, 2000, "swing");
+  // });
+});
+
+
