@@ -120,15 +120,15 @@ $(document).ready(function() {
 
   // Start
 
-  move_to("-600px", "-4000px", 2000, function() {
+  move_to("-4400px", "-5000px", 2000, function() {
     $(document).keydown(function (e) {get_keypress(e);});
   });
   wait_press();
   console.log("1");
-  move_to("-600px", "-3000px", 2000);
+  move_to("-4400px", "-3500px", 2000);
   console.log("2");
 
-  move_to("-600px", "-2000px", 2000);
+  move_to("-4400px", "-3000px", 2000);
   console.log("3");
 
 

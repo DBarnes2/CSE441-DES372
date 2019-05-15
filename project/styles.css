@@ -7,15 +7,38 @@ body {
     /*overflow: hidden;*/
 }
 
-.prompt p, .option p {
+.prompt p {
     color: white;
-    font-size: 2em;
+    font-size: 4em;
+    text-align: center;
+    top: 80px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     margin: auto;
     width: 50%;
     z-index: 100;
     position: relative;
+}
+
+.option p {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    width: 50%;
+    z-index: 100;
+    position: absolute;
+    top: 650px;
+}
+
+.left-option p {
+    left: 80px;
+}
+
+.right-option p {
+    right: 80px;
 }
 
 #screen {
