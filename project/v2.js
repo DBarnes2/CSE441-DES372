@@ -74,12 +74,63 @@ $.fn.animateRotate = function(angle, duration, easing, complete) {
 $(document).ready(function() {
   var arrow = {left: 37, up: 38, right: 39, down: 40 };
 
-  function move_to(x = "-44%", y = "-697%") {
+  // Animation function
+  function move_to(x = "-44%", y = "-697%", s = 5000) {
     $("#map").animate({left: x, top: y}, 3000);
     // alert("works" + x + " " + y);
   }
-  move_to("-44%", "-599%");
-  move_to("34%", "-352%");
+
+  function get_keypress(e) {
+    var keyCode = e.keyCode || e.which,
+    arrow = {left: 37, up: 38, right: 39, down: 40 };
+    switch (keyCode) {
+        case arrow.left: 
+          console.log("LEFT");
+          $('#map').animate({"left": "-=1px"}, "slow");
+        break;
+        case arrow.right: 
+          console.log("RIGHT");
+          $('#map').animate({"left": "+=1px"}, "slow");
+        break;
+    }
+  }
+
+  function wait_press() {
+    $(document).keydown(function(e) {
+      switch(e.which) {
+          case 37: // left
+          break;
+  
+          case 38: // up
+          break;
+  
+          case 39: // right
+          break;
+  
+          case 40: // down
+          break;
+  
+          default: return; // exit this handler for other keys
+      }
+      e.preventDefault(); // prevent the default action (scroll / move caret)
+  });
+  }
+    
+
+
+  // Start
+
+  move_to("-600px", "-4000px", 2000, function() {
+    $(document).keydown(function (e) {get_keypress(e);});
+  });
+  wait_press();
+  console.log("1");
+  move_to("-600px", "-3000px", 2000);
+  console.log("2");
+
+  move_to("-600px", "-2000px", 2000);
+  console.log("3");
+
 
   // $("#map").animate({top: "-599%"}, 3000, function() {
   //   console.log("finished move up");
