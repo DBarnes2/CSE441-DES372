@@ -360,6 +360,7 @@ $(document).ready(function() {
         // Specific to stage 1, add bubble
         $(".left-select").addClass("bubble");
         $(".right-select").addClass("bubble");
+        $(".left-select").addClass("selected");
         //$(".prompt").addClass("bubble");
     }
 
