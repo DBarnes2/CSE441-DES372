@@ -338,7 +338,7 @@ $(document).ready(function() {
         map_top = map_top + up_distance;
         map.animate({left: map_left, top: map_top}, 1000, function() {
             show_question(
-                "In a company do you: ",
+                "In company do you: ",
                 "initiate conversation",
                 "wait to be approached"
             );
