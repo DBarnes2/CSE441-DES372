@@ -9,7 +9,7 @@ $(document).ready(function() {
     map_left = map.position().left,
     map_top = map.position().top,
     console_counter = 1,
-    pressed_key = 0;
+    pressed_key = 97;
 
     // This function displays the map's position for debugging!
     function console_pos() {
@@ -57,9 +57,9 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
-                $("#screen").html('<img class="endscreen" src="Scientists/1.jpg" id="1a"><img class="endscreen" src="Scientists/1-1.jpg" id="1b">');
-                $("#1a").fadeIn(function() {
-                    $("#1b").show();
+                $("#screen").html('<img class="endscreen" src="Scientists/4.jpg" id="4a"><img class="endscreen" src="Scientists/4-1.jpg" id="4b">');
+                $("#4a").fadeIn(function() {
+                    $("#4b").show();
                     $(this).delay(2000).fadeOut();
                 });
             });
@@ -68,20 +68,6 @@ $(document).ready(function() {
 
     function stage_2L_3L_4R() {
         map_left = map_left - 500;
-        map.animate({left: map_left, top: map_top}, 1500, function() {
-            map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 1500, function() {
-                $("#screen").html('<img class="endscreen" src="Scientists/2.jpg" id="2a"><img class="endscreen" src="Scientists/2-1.jpg" id="2b">');
-                $("#2a").fadeIn(function() {
-                    $("#2b").show();
-                    $(this).delay(2000).fadeOut();
-                });
-            });
-        });
-    }
-
-    function stage_2L_3R_4L() {
-        map_left = map_left + 500;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -94,21 +80,7 @@ $(document).ready(function() {
         });
     }
 
-    function stage_2L_3R_4R() {
-        map_left = map_left - 500;
-        map.animate({left: map_left, top: map_top}, 1500, function() {
-            map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 1500, function() {
-                $("#screen").html('<img class="endscreen" src="Scientists/4.jpg" id="4a"><img class="endscreen" src="Scientists/4-1.jpg" id="4b">');
-                $("#4a").fadeIn(function() {
-                    $("#4b").show();
-                    $(this).delay(2000).fadeOut();
-                });
-            });
-        });
-    }
-
-    function stage_2R_3L_4L() {
+    function stage_2L_3R_4L() {
         map_left = map_left + 500;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -122,7 +94,7 @@ $(document).ready(function() {
         });
     }
 
-    function stage_2R_3L_4R() {
+    function stage_2L_3R_4R() {
         map_left = map_left - 500;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -136,7 +108,7 @@ $(document).ready(function() {
         });
     }
 
-    function stage_2R_3R_4L() {
+    function stage_2R_3L_4L() {
         map_left = map_left + 500;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -150,7 +122,7 @@ $(document).ready(function() {
         });
     }
 
-    function stage_2R_3R_4R() {
+    function stage_2R_3L_4R() {
         map_left = map_left - 500;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -158,6 +130,34 @@ $(document).ready(function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/8.jpg" id="8a"><img class="endscreen" src="Scientists/8-1.jpg" id="8b">');
                 $("#8a").fadeIn(function() {
                     $("#8b").show();
+                    $(this).delay(2000).fadeOut();
+                });
+            });
+        });
+    }
+
+    function stage_2R_3R_4L() {
+        map_left = map_left + 500;
+        map.animate({left: map_left, top: map_top}, 1500, function() {
+            map_top = map_top + up_distance;
+            map.animate({left: map_left, top: map_top}, 1500, function() {
+                $("#screen").html('<img class="endscreen" src="Scientists/2.jpg" id="2a"><img class="endscreen" src="Scientists/2-1.jpg" id="2b">');
+                $("#2a").fadeIn(function() {
+                    $("#2b").show();
+                    $(this).delay(2000).fadeOut();
+                });
+            });
+        });
+    }
+
+    function stage_2R_3R_4R() {
+        map_left = map_left - 500;
+        map.animate({left: map_left, top: map_top}, 1500, function() {
+            map_top = map_top + up_distance;
+            map.animate({left: map_left, top: map_top}, 1500, function() {
+                $("#screen").html('<img class="endscreen" src="Scientists/1.jpg" id="1a"><img class="endscreen" src="Scientists/1-1.jpg" id="1b">');
+                $("#1a").fadeIn(function() {
+                    $("#1b").show();
                     $(this).delay(2000).fadeOut();
                 });
             });
