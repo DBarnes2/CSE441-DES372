@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     padding: 0; 
     margin: 0;
@@ -11,25 +15,32 @@ body {
     display: none;
 }
 
+.endscreen {
+    width: 100%;
+    display: none;
+    top: -150px;
+    position: relative;
+}
+
 .prompt {
-    top: 100px;
+    top: 180px;
     margin: auto;
     width: 50%;
     z-index: 100;
     position: relative;
-}
-
-.prompt p {
-    color: white;
-    font-size: 6em;
+    color: black;
+    font-size: 4em;
     text-align: center;
     font-weight: bold;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color: white;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
 }
 
-.option p {
-    color: white;
-    font-size: 3em;
+.option {
+    color: black;
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -40,23 +51,31 @@ body {
     top: 850px;
 }
 
-.left-option p {
-    left: 80px;
+.left-option {
+    left: 0px;
 }
 
-.right-option p {
-    right: 80px;
+.right-option {
+    right: 0px;
 }
 
-.selected span {
+.bubble {
+    padding: 10px 10px 10px 10px;
+    display: inline;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.selected {
     border: 8px solid rgb(255, 127, 80);
     padding: 10px 10px 10px 10px;
     display: inline;
+    border-radius: 10px;
 }
 
 #screen {
     width: 100%;
-    height: 100hv;
+    height: 100%;
     /* overflow: hidden; */
 }
 
@@ -75,3 +94,8 @@ body {
     height:auto;
     bottom: 360px;
 }
+
+.column {
+    float: left;
+    width: 50%;
+  }

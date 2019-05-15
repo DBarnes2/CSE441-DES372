@@ -25,7 +25,7 @@ $(document).ready(function() {
     // Show questions function
     function show_question(prompt, left, right) {
         $(".text").show();
-        $(".prompt p").text(prompt);
+        $(".prompt p span").text(prompt);
         $(".left-option p span").text(left);
         $(".right-option p span").text(right);
         // $(".right-option").removeClass("selected");
@@ -37,14 +37,14 @@ $(document).ready(function() {
         if (keyCode == 97) {
             pressed_key = 97;
             console.log("should select left");
-            $(".left-option").addClass("selected");
-            $(".right-option").removeClass("selected");
+            $(".left-select").addClass("selected");
+            $(".right-select").removeClass("selected");
         // d == right
         } else if (keyCode == 100) {
             pressed_key = 100;
             console.log("should select right");
-            $(".right-option").addClass("selected");
-            $(".left-option").removeClass("selected");
+            $(".right-select").addClass("selected");
+            $(".left-select").removeClass("selected");
         }
     }
 
@@ -57,7 +57,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4L!");
+                $("#screen").html('<img class="endscreen" src="Scientists/1.jpg" id="1a"><img class="endscreen" src="Scientists/1-1.jpg" id="1b">');
+                $("#1a").fadeIn(function() {
+                    $("#1b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -67,7 +71,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4R!");
+                $("#screen").html('<img class="endscreen" src="Scientists/2.jpg" id="2a"><img class="endscreen" src="Scientists/2-1.jpg" id="2b">');
+                $("#2a").fadeIn(function() {
+                    $("#2b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -77,7 +85,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4L!");
+                $("#screen").html('<img class="endscreen" src="Scientists/3.jpg" id="3a"><img class="endscreen" src="Scientists/3-1.jpg" id="3b">');
+                $("#3a").fadeIn(function() {
+                    $("#3b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -87,7 +99,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4R!");
+                $("#screen").html('<img class="endscreen" src="Scientists/4.jpg" id="4a"><img class="endscreen" src="Scientists/4-1.jpg" id="4b">');
+                $("#4a").fadeIn(function() {
+                    $("#4b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -97,7 +113,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4L!");
+                $("#screen").html('<img class="endscreen" src="Scientists/5.jpg" id="5a"><img class="endscreen" src="Scientists/5-1.jpg" id="5b">');
+                $("#5a").fadeIn(function() {
+                    $("#5b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -107,7 +127,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4R!");
+                $("#screen").html('<img class="endscreen" src="Scientists/6.jpg" id="6a"><img class="endscreen" src="Scientists/6-1.jpg" id="6b">');
+                $("#6a").fadeIn(function() {
+                    $("#6b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -117,7 +141,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4L!");
+                $("#screen").html('<img class="endscreen" src="Scientists/7.jpg" id="7a"><img class="endscreen" src="Scientists/7-1.jpg" id="7b">');
+                $("#7a").fadeIn(function() {
+                    $("#7b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -127,7 +155,11 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
-                alert("You reached 4R!");
+                $("#screen").html('<img class="endscreen" src="Scientists/8.jpg" id="8a"><img class="endscreen" src="Scientists/8-1.jpg" id="8b">');
+                $("#8a").fadeIn(function() {
+                    $("#8b").show();
+                    $(this).delay(2000).fadeOut();
+                });
             });
         });
     }
@@ -324,9 +356,15 @@ $(document).ready(function() {
                 }  
             });
         });
+
+        // Specific to stage 1, add bubble
+        $(".left-select").addClass("bubble");
+        $(".right-select").addClass("bubble");
+        //$(".prompt").addClass("bubble");
     }
 
     function stage_start() {
+
         $(document).keypress(function (event) {          
             // choose an option, rn we'll say they chose Left
             if (event.keyCode == 119) { // if press 'w'
