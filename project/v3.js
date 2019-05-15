@@ -285,8 +285,8 @@ $(document).ready(function() {
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Do you prefer:",
-                    "Finding undiscovered talent",
-                    "Cultivating talent"
+                    "Cultivating talent",
+                    "Finding undiscovered talent"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
@@ -311,8 +311,8 @@ $(document).ready(function() {
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "How comfortable are you with ambiguity?",
-                    "I prefer to create my own goals",
-                    "I’d like to work on pre-assigned tasks"
+                    "I’d like to work on pre-assigned tasks",
+                    "I prefer to create my own goals"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
