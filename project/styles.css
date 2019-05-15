@@ -7,6 +7,10 @@ body {
     /*overflow: hidden;*/
 }
 
+.text {
+    display: none;
+}
+
 .prompt p {
     color: white;
     font-size: 6em;

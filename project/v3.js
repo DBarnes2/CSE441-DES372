@@ -296,7 +296,7 @@ $(document).ready(function() {
     
     function stage_1() {
         map_top = map_top + up_distance;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 5000, function() {
             show_question(
                 "Question 1",
                 "Option 1L",
