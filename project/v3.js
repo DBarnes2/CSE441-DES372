@@ -24,18 +24,20 @@ $(document).ready(function() {
     function show_question(prompt, left, right) {
         $(".text").show();
         $(".prompt p").text(prompt);
-        $(".left-option p").text(left);
-        $(".right-option p").text(right);
+        $(".left-option p span").text(left);
+        $(".right-option p span").text(right);
+        $(".right-option").removeClass("selected");
+        $(".left-option").removeClass("selected");
     }
 
     function process_keyPress(keyCode) {
-        // j == left
-        if (keyCode == 106) {
+        // a == left
+        if (keyCode == 97) {
             console.log("should select left");
             $(".left-option").addClass("selected");
             $(".right-option").removeClass("selected");
-        // l == right
-        } else if (keyCode == 108) {
+        // d == right
+        } else if (keyCode == 100) {
             console.log("should select right");
             $(".right-option").addClass("selected");
             $(".left-option").removeClass("selected");
@@ -321,8 +323,34 @@ $(document).ready(function() {
         });
     }
 
+    function stage_start() {
+        map_top = map_top;
+        map.animate({left: map_left, top: map_top}, 5000, function() {
+            $("#start").show();
+            $(document).keypress(function (event) {      
+                console.log(event.keyCode);
+                process_keyPress(event.keyCode);      
+                console.log("You pressed a key! 1");
+                // choose an option, rn we'll say they chose Left
+                if (event.keyCode == 119) { // if press 'w'
+                    $("#start").hide();
+                    stage_1();
+                    $(document).unbind('keypress');
+                } else if (event.keyCode == 97) { // if press 'a'
+                    $("#start").hide();
+                    stage_1();
+                    $(document).unbind('keypress');
+                } else if (event.keyCode == 100) { // if press 'd'
+                    $("#start").hide();
+                    stage_1();
+                    $(document).unbind('keypress');
+                }
+            });
+        });
+    }
+
     function start() {
-        stage_1();
+        stage_start();
     }
 
     // Do stuff!

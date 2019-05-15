@@ -64,3 +64,11 @@ body {
     left: -4303px;
     /* background-image: linear-gradient(red, yellow); */
 }
+
+#start {
+    position: absolute;
+    left: 720px;
+    max-width:100%;
+    height:auto;
+    bottom: 360px;
+}
