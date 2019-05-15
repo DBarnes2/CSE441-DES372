@@ -5,6 +5,7 @@ $(document).ready(function() {
     const left_distance_2 = 950;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
+    text = $(".text"),
     map_left = map.position().left,
     map_top = map.position().top,
     console_counter = 1,
@@ -142,15 +143,14 @@ $(document).ready(function() {
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
                     "Are you interested in:",
-                    "Recogntion",
+                    "Recognition",
                     "Financial Incentives"
                 );
                 $(document).keypress(function (event) {            
-                    console.log("You pressed a key! 3");
                     process_keyPress(event.keyCode);
-                    // choose an option, rn we'll say they chose Left
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
+                        text.hide();
                         if (pressed_key == 97) { // if press 'a'
                             stage_2L_3L_4L();
                         } else if (pressed_key == 100) { // if press 'd'
@@ -176,6 +176,7 @@ $(document).ready(function() {
                     process_keyPress(event.keyCode);
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
+                        text.hide();
                         if (pressed_key == 97) { // if press 'a'
                             stage_2L_3R_4L();
                         } else if (pressed_key == 100) { // if press 'd'
@@ -199,11 +200,10 @@ $(document).ready(function() {
                     "Work on an established project"
                 );
                 $(document).keypress(function (event) {            
-                    console.log("You pressed a key! 3");
                     process_keyPress(event.keyCode);
-                    // choose an option, rn we'll say they chose Left
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
+                        text.hide();
                         if (pressed_key == 97) { // if press 'a'
                             stage_2R_3L_4L();
                         } else if (pressed_key == 100) { // if press 'd'
@@ -227,6 +227,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
+                    text.hide();
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
                         if (pressed_key == 97) { // if press 'a'
@@ -259,6 +260,7 @@ $(document).ready(function() {
                     process_keyPress(event.keyCode);
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
+                        text.hide();
                         if (pressed_key == 97) { // if press 'a'
                             stage_2L_3L();
                         } else if (pressed_key == 100) { // if press 'd'
@@ -284,6 +286,7 @@ $(document).ready(function() {
                     process_keyPress(event.keyCode);
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
+                        text.hide();
                         if (pressed_key == 97) { // if press 'a'
                             stage_2R_3L();
                         } else if (pressed_key == 100) { // if press 'd'
@@ -312,6 +315,7 @@ $(document).ready(function() {
                 // choose an option, rn we'll say they chose Left
                 if (event.keyCode == 119) { // if press 'w'
                     $(document).unbind('keypress');
+                    text.hide();
                     if (pressed_key == 97) { // if press 'a'
                         stage_2L();
                     } else if (pressed_key == 100) { // if press 'd'
