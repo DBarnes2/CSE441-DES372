@@ -1,14 +1,19 @@
 // All custom jQuery will go here
 $(document).ready(function() {
     const up_distance = 1300;
-    const left_distance = 2153;
-    const left_distance_2 = 950;
+    const left_distance = 2100;
+    const left_distance_2 = 1350;
+    const left_distance_3 = 580;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
     text = $(".text"),
     map_left = map.position().left,
     map_top = map.position().top,
     console_counter = 1,
+<<<<<<< HEAD
+    // Initially pressed key: 'a'
+=======
+>>>>>>> a4660ffb26ff5e818a7b2f3eb601b2dc71f95c9e
     pressed_key = 97;
 
     // This function displays the map's position for debugging!
@@ -53,7 +58,7 @@ $(document).ready(function() {
     //
 
     function stage_2L_3L_4L() {
-        map_left = map_left + 500;
+        map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -67,7 +72,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3L_4R() {
-        map_left = map_left - 500;
+        map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -81,7 +86,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3R_4L() {
-        map_left = map_left + 500;
+        map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -95,7 +100,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3R_4R() {
-        map_left = map_left - 500;
+        map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -109,7 +114,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3L_4L() {
-        map_left = map_left + 500;
+        map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -123,7 +128,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3L_4R() {
-        map_left = map_left - 500;
+        map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -137,7 +142,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R_4L() {
-        map_left = map_left + 500;
+        map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -151,7 +156,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R_4R() {
-        map_left = map_left - 500;
+        map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -169,7 +174,7 @@ $(document).ready(function() {
     // 
 
     function stage_2L_3L() {
-        map_left = map_left + 1400;
+        map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -195,7 +200,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3R() {
-        map_left = map_left - 1400;
+        map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -222,7 +227,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3L() {
-        map_left = map_left + 1400;
+        map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -248,7 +253,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R() {
-        map_left = map_left - 1400;
+        map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
