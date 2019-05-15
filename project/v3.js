@@ -141,9 +141,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Question 1L - 2L - 3",
-                    "Option 1L - 2L - 3L",
-                    "Option 1L - 2L - 3R"
+                    "Are you interested in:",
+                    "Recogntion",
+                    "Financial Incentives"
                 );
                 $(document).keypress(function (event) {            
                     console.log("You pressed a key! 3");
@@ -168,9 +168,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Question 1L - 2L - 3",
-                    "Option 1L - 2L - 3L",
-                    "Option 1L - 2L - 3R"
+                    "Do you prefer:",
+                    "Working on user facing products",
+                    "Focusing more on the back-end of things "
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -194,9 +194,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Question 1L - 2L - 3",
-                    "Option 1L - 2L - 3L",
-                    "Option 1L - 2L - 3R"
+                    "Would you rather work:",
+                    "Start from the ground up",
+                    "Work on an established project"
                 );
                 $(document).keypress(function (event) {            
                     console.log("You pressed a key! 3");
@@ -221,9 +221,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Question 1L - 2L - 3",
-                    "Option 1L - 2L - 3L",
-                    "Option 1L - 2L - 3R"
+                    "Do you prefer to work hands on?",
+                    "Yes",
+                    "No"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -251,9 +251,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Question 1L - 2",
-                    "Option 1L - 2L",
-                    "Option 1L - 2R"
+                    "How comfortable are you with ambiguity?",
+                    "I prefer to create my own goals",
+                    "I’d like to work on pre-assigned tasks"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
@@ -276,9 +276,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Question 1R - 2",
-                    "Option 1R - 2L",
-                    "Option 1R - 2R"
+                    "Do you prefer:",
+                    "Finding undiscovered talent",
+                    "Cultivating talent"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
@@ -303,14 +303,12 @@ $(document).ready(function() {
         map_top = map_top + up_distance;
         map.animate({left: map_left, top: map_top}, 1000, function() {
             show_question(
-                "Question 1",
-                "Option 1L",
-                "Option 1R"
+                "In a company do you: ",
+                "initiate conversation",
+                "wait to be approached"
             );
             $(document).keypress(function (event) {      
-                console.log(event.keyCode);
                 process_keyPress(event.keyCode);      
-                console.log("You pressed a key! 1");
                 // choose an option, rn we'll say they chose Left
                 if (event.keyCode == 119) { // if press 'w'
                     $(document).unbind('keypress');
