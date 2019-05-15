@@ -54,9 +54,9 @@ $(document).ready(function() {
 
     function stage_2L_3L_4L() {
         map_left = map_left + 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/1.jpg" id="1a"><img class="endscreen" src="Scientists/1-1.jpg" id="1b">');
                 $("#1a").fadeIn(function() {
                     $("#1b").show();
@@ -68,9 +68,9 @@ $(document).ready(function() {
 
     function stage_2L_3L_4R() {
         map_left = map_left - 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/2.jpg" id="2a"><img class="endscreen" src="Scientists/2-1.jpg" id="2b">');
                 $("#2a").fadeIn(function() {
                     $("#2b").show();
@@ -82,9 +82,9 @@ $(document).ready(function() {
 
     function stage_2L_3R_4L() {
         map_left = map_left + 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/3.jpg" id="3a"><img class="endscreen" src="Scientists/3-1.jpg" id="3b">');
                 $("#3a").fadeIn(function() {
                     $("#3b").show();
@@ -96,9 +96,9 @@ $(document).ready(function() {
 
     function stage_2L_3R_4R() {
         map_left = map_left - 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/4.jpg" id="4a"><img class="endscreen" src="Scientists/4-1.jpg" id="4b">');
                 $("#4a").fadeIn(function() {
                     $("#4b").show();
@@ -110,9 +110,9 @@ $(document).ready(function() {
 
     function stage_2R_3L_4L() {
         map_left = map_left + 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/5.jpg" id="5a"><img class="endscreen" src="Scientists/5-1.jpg" id="5b">');
                 $("#5a").fadeIn(function() {
                     $("#5b").show();
@@ -124,9 +124,9 @@ $(document).ready(function() {
 
     function stage_2R_3L_4R() {
         map_left = map_left - 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/6.jpg" id="6a"><img class="endscreen" src="Scientists/6-1.jpg" id="6b">');
                 $("#6a").fadeIn(function() {
                     $("#6b").show();
@@ -138,9 +138,9 @@ $(document).ready(function() {
 
     function stage_2R_3R_4L() {
         map_left = map_left + 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/7.jpg" id="7a"><img class="endscreen" src="Scientists/7-1.jpg" id="7b">');
                 $("#7a").fadeIn(function() {
                     $("#7b").show();
@@ -152,9 +152,9 @@ $(document).ready(function() {
 
     function stage_2R_3R_4R() {
         map_left = map_left - 500;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 $("#screen").html('<img class="endscreen" src="Scientists/8.jpg" id="8a"><img class="endscreen" src="Scientists/8-1.jpg" id="8b">');
                 $("#8a").fadeIn(function() {
                     $("#8b").show();
@@ -170,9 +170,9 @@ $(document).ready(function() {
 
     function stage_2L_3L() {
         map_left = map_left + 1400;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Do you prefer to work hands on?",
                     "Yes",
@@ -196,9 +196,9 @@ $(document).ready(function() {
 
     function stage_2L_3R() {
         map_left = map_left - 1400;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Would you rather work:",
                     "Start from the ground up",
@@ -223,9 +223,9 @@ $(document).ready(function() {
 
     function stage_2R_3L() {
         map_left = map_left + 1400;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Do you prefer:",
                     "Working on user facing products",
@@ -249,9 +249,9 @@ $(document).ready(function() {
 
     function stage_2R_3R() {
         map_left = map_left - 1400;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Are you interested in:",
                     "Recognition",
@@ -259,9 +259,9 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    text.hide();
                     if (event.keyCode == 119) { // if press 'w'
                         $(document).unbind('keypress');
+                        text.hide();
                         if (pressed_key == 97) { // if press 'a'
                             stage_2R_3R_4L();
                         } else if (pressed_key == 100) { // if press 'd'
@@ -280,9 +280,9 @@ $(document).ready(function() {
 
     function stage_2L() {
         map_left = map_left + left_distance;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Do you prefer:",
                     "Finding undiscovered talent",
@@ -306,9 +306,9 @@ $(document).ready(function() {
 
     function stage_2R() {
         map_left = map_left - left_distance;
-        map.animate({left: map_left, top: map_top}, 500, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
-            map.animate({left: map_left, top: map_top}, 500, function() {
+            map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "How comfortable are you with ambiguity?",
                     "I prefer to create my own goals",
@@ -336,7 +336,7 @@ $(document).ready(function() {
     
     function stage_1() {
         map_top = map_top + up_distance;
-        map.animate({left: map_left, top: map_top}, 1000, function() {
+        map.animate({left: map_left, top: map_top}, 1500, function() {
             show_question(
                 "In company do you: ",
                 "initiate conversation",
