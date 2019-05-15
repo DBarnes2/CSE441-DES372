@@ -30,20 +30,28 @@ $(document).ready(function() {
 
     // Show questions function
     function show_question(prompt, left, right) {
-        
+        $(".text").show();
+        $(".prompt p").text(prompt);
+        $(".left-option p").text(left);
+        $(".right-option p").text(right);
     }
     
-    
     // Do stuff
-    function stage1() {
+    function start() {
         // console_pos("1").done(move_to(map_left, map_top + 1028)).done(console_pos("2"));
         // move_to(map_left, map_top + 1028).done(console_pos("2"));
         console_pos();
         map.animate({left: map_left, top: map_top + 1228}, 3000, function() {
             console_pos();
+            show_question(
+                "Question 1",
+                "Option 1a",
+                "Option 1b"
+            );
+
         });
     }
 
-    stage1();
+    start();
     
 });
