@@ -1,6 +1,6 @@
 // All custom jQuery will go here
 $(document).ready(function() {
-    const up_distance = 1228;
+    const up_distance = 1300;
     const left_distance = 2153;
     const left_distance_2 = 950;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
@@ -142,9 +142,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Are you interested in:",
-                    "Recognition",
-                    "Financial Incentives"
+                    "Do you prefer to work hands on?",
+                    "Yes",
+                    "No"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -168,9 +168,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Do you prefer:",
-                    "Working on user facing products",
-                    "Focusing more on the back-end of things "
+                    "Would you rather work:",
+                    "Start from the ground up",
+                    "Work on an established project"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -195,9 +195,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Would you rather work:",
-                    "Start from the ground up",
-                    "Work on an established project"
+                    "Do you prefer:",
+                    "Working on user facing products",
+                    "Focusing more on the back-end of things "
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -221,9 +221,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Do you prefer to work hands on?",
-                    "Yes",
-                    "No"
+                    "Are you interested in:",
+                    "Recognition",
+                    "Financial Incentives"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -252,9 +252,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "How comfortable are you with ambiguity?",
-                    "I prefer to create my own goals",
-                    "I’d like to work on pre-assigned tasks"
+                    "Do you prefer:",
+                    "Finding undiscovered talent",
+                    "Cultivating talent"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
@@ -278,9 +278,9 @@ $(document).ready(function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 500, function() {
                 show_question(
-                    "Do you prefer:",
-                    "Finding undiscovered talent",
-                    "Cultivating talent"
+                    "How comfortable are you with ambiguity?",
+                    "I prefer to create my own goals",
+                    "I’d like to work on pre-assigned tasks"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
