@@ -6,6 +6,7 @@ $(document).ready(function() {
     const left_distance_3 = 580;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
+    image_1_1 = $("#1_1"),
     text = $(".text"),
     map_left = map.position().left,
     map_top = map.position().top,
@@ -26,12 +27,13 @@ $(document).ready(function() {
 
     // Show questions function
     function show_question(prompt, left, right) {
-        $(".text").show();
+        /*$(".text").show();
         $(".prompt p span").text(prompt);
         $(".left-option p span").text(left);
         $(".right-option p span").text(right);
         // $(".right-option").removeClass("selected");
-        $(".left-option").removeClass("selected");
+        $(".left-option").removeClass("selected");*/
+        $(".1_1").removeClass("hidden");
     }
 
     function process_keyPress(keyCode) {
@@ -281,8 +283,10 @@ $(document).ready(function() {
     // 
 
     function stage_2L() {
+        //$('audio#test')[0].play()
         map_left = map_left + left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
+            //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
@@ -307,8 +311,10 @@ $(document).ready(function() {
     }
 
     function stage_2R() {
+        //$('audio#test')[0].play()
         map_left = map_left - left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
+            //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
@@ -337,6 +343,7 @@ $(document).ready(function() {
     // 
     
     function stage_1() {
+        $('audio#test')[0].play()
         map_top = map_top + up_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             show_question(
@@ -351,8 +358,10 @@ $(document).ready(function() {
                     $(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
+                        $('audio#test')[0].play()
                         stage_2L();
                     } else if (pressed_key == 100) { // if press 'd'
+                        $('audio#test')[0].play()
                         stage_2R();
                     }
                 }  

@@ -101,3 +101,12 @@ body {
     float: left;
     width: 50%;
   }
+
+.hidden {
+    display: none;
+}
+
+.option {
+    top: 400px;
+    left: 400px;
+}
