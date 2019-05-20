@@ -372,8 +372,9 @@ $(document).ready(function() {
             // choose an option, rn we'll say they chose Left
             if (event.keyCode == 119) { // if press 'w'
                 $(document).unbind('keypress');
-                $("#start").hide();
-                stage_1();
+                $("#start").fadeOut('slow', function() {
+                    stage_1();
+                });
             }  
         });
     }
