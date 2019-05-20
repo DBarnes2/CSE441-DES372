@@ -10,10 +10,7 @@ $(document).ready(function() {
     map_left = map.position().left,
     map_top = map.position().top,
     console_counter = 1,
-<<<<<<< HEAD
     // Initially pressed key: 'a'
-=======
->>>>>>> a4660ffb26ff5e818a7b2f3eb601b2dc71f95c9e
     pressed_key = 97;
 
     // This function displays the map's position for debugging!
