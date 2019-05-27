@@ -83,7 +83,7 @@ body {
     position: absolute;
     bottom: 0;
     /* width of map is 10380 */
-    left: -4325px;
+    left: -4363px;
     /* background-image: linear-gradient(red, yellow); */
 }
 
@@ -107,6 +107,7 @@ body {
 }
 
 .option {
-    top: 400px;
+    top: 177px;
     left: 400px;
+    transform: scale(1.5);
 }

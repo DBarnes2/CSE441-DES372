@@ -1,9 +1,9 @@
 // All custom jQuery will go here
 $(document).ready(function() {
-    const up_distance = 1300;
-    const left_distance = 2100;
-    const left_distance_2 = 1350;
-    const left_distance_3 = 580;
+    const up_distance = 1323;
+    const left_distance = 2132;
+    const left_distance_2 = 1345;
+    const left_distance_3 = 545;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
     image_1_1 = $("#1_1"),
@@ -26,14 +26,18 @@ $(document).ready(function() {
     }
 
     // Show questions function
-    function show_question(prompt, left, right) {
+    function show_question(prompt, left, right, option) {
         /*$(".text").show();
         $(".prompt p span").text(prompt);
         $(".left-option p span").text(left);
         $(".right-option p span").text(right);
         // $(".right-option").removeClass("selected");
         $(".left-option").removeClass("selected");*/
-        $(".1_1").removeClass("hidden");
+        $("." + option).removeClass("hidden");
+    }
+
+    function clear() {
+        $(".option").addClass("hidden");
     }
 
     function process_keyPress(keyCode) {
@@ -57,6 +61,7 @@ $(document).ready(function() {
     //
 
     function stage_2L_3L_4L() {
+        clear();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -71,6 +76,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3L_4R() {
+        clear();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -85,6 +91,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3R_4L() {
+        clear();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -99,6 +106,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3R_4R() {
+        clear();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -113,6 +121,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3L_4L() {
+        clear();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -127,6 +136,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3L_4R() {
+        clear();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -141,6 +151,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R_4L() {
+        clear();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -155,6 +166,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R_4R() {
+        clear();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -173,6 +185,7 @@ $(document).ready(function() {
     // 
 
     function stage_2L_3L() {
+        clear();
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -199,6 +212,7 @@ $(document).ready(function() {
     }
 
     function stage_2L_3R() {
+        clear();
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -226,6 +240,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3L() {
+        clear();
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -252,6 +267,7 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R() {
+        clear();
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -283,6 +299,7 @@ $(document).ready(function() {
     // 
 
     function stage_2L() {
+        clear();
         //$('audio#test')[0].play()
         map_left = map_left + left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -311,8 +328,9 @@ $(document).ready(function() {
     }
 
     function stage_2R() {
+        clear();
         //$('audio#test')[0].play()
-        map_left = map_left - left_distance;
+        map_left = map_left - left_distance - 20;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
@@ -343,13 +361,15 @@ $(document).ready(function() {
     // 
     
     function stage_1() {
-        $('audio#test')[0].play()
-        map_top = map_top + up_distance;
+        clear();
+        //$('audio#test')[0].play()
+        map_top = map_top + up_distance - 223;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             show_question(
                 "In company do you: ",
                 "initiate conversation",
-                "wait to be approached"
+                "wait to be approached",
+                "1_1"
             );
             $(document).keypress(function (event) {      
                 process_keyPress(event.keyCode);      
@@ -358,10 +378,10 @@ $(document).ready(function() {
                     $(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
-                        $('audio#test')[0].play()
+                        //$('audio#test')[0].play()
                         stage_2L();
                     } else if (pressed_key == 100) { // if press 'd'
-                        $('audio#test')[0].play()
+                        //$('audio#test')[0].play()
                         stage_2R();
                     }
                 }  
