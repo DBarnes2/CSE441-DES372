@@ -56,6 +56,19 @@ $(document).ready(function() {
         }
     }
 
+    // Replay screen
+    function replay() {
+        confirm("Replay?");
+        $(".endscreen").fadeOut();
+        setTimeout(function() {
+            map_left = -4363;
+            map_top = -3150;
+            map.css('left', map_left + 'px');
+            map.css('top', map_top + 'px');
+            stage_1_decision();
+        }, 500);
+    }
+
     //
     // Stage 4
     //
@@ -70,6 +83,7 @@ $(document).ready(function() {
                 $("#4a").fadeIn(function() {
                     $("#4b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -359,6 +373,24 @@ $(document).ready(function() {
     // 
     // Stage 1
     // 
+
+    function stage_1_decision() {
+        $(document).keypress(function (event) {      
+            process_keyPress(event.keyCode);      
+            // choose an option, rn we'll say they chose Left
+            if (event.keyCode == 119) { // if press 'w'
+                $(document).unbind('keypress');
+                text.hide();
+                if (pressed_key == 97) { // if press 'a'
+                    //$('audio#test')[0].play()
+                    stage_2L();
+                } else if (pressed_key == 100) { // if press 'd'
+                    //$('audio#test')[0].play()
+                    stage_2R();
+                }
+            }  
+        });
+    }
     
     function stage_1() {
         clear();
@@ -371,21 +403,7 @@ $(document).ready(function() {
                 "wait to be approached",
                 "1_1"
             );
-            $(document).keypress(function (event) {      
-                process_keyPress(event.keyCode);      
-                // choose an option, rn we'll say they chose Left
-                if (event.keyCode == 119) { // if press 'w'
-                    $(document).unbind('keypress');
-                    text.hide();
-                    if (pressed_key == 97) { // if press 'a'
-                        //$('audio#test')[0].play()
-                        stage_2L();
-                    } else if (pressed_key == 100) { // if press 'd'
-                        //$('audio#test')[0].play()
-                        stage_2R();
-                    }
-                }  
-            });
+            stage_1_decision();
         });
 
         // Specific to stage 1, add bubble
@@ -396,7 +414,6 @@ $(document).ready(function() {
     }
 
     function stage_start() {
-
         $(document).keypress(function (event) {          
             // choose an option, rn we'll say they chose Left
             if (event.keyCode == 119) { // if press 'w'
@@ -408,11 +425,7 @@ $(document).ready(function() {
         });
     }
 
-    function start() {
-        stage_start();
-    }
-
     // Do stuff!
-    start();
+    stage_start();
     
 });
