@@ -414,19 +414,15 @@ $(document).ready(function() {
     
     function stage_1() {
         clear();
-        map_top = map_top + up_distance - 162;
-        /*intro_audio.animate({volume: 0.1}, 1000, function() {
-            console.log("should fade out");
-        });*/
-        map.animate({left: map_left, top: map_top}, 1500, function() {
+        map_top = map_top + up_distance - 108;
+        $('#intro').animate({volume: 0.0}, 3000);
+        map.animate({left: map_left, top: map_top}, 3000, function() {
             show_question(
                 "In company do you: ",
                 "initiate conversation",
                 "wait to be approached",
                 "1_1"
             );
-            // Pausing here until I can figure out fading
-            intro_audio.pause();
             stage_1_decision();
         });
 
