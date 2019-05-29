@@ -14,6 +14,12 @@ $(document).ready(function() {
     // Initially pressed key: 'a'
     pressed_key = 97;
 
+    // audio
+    var test_audio = $('audio#test')[0];
+    var intro_audio = $('audio#intro')[0];
+    var loading_audio = $('audio#loading')[0];
+
+
     // This function displays the map's position for debugging!
     function console_pos() {
         var d = new $.Deferred();
@@ -37,7 +43,7 @@ $(document).ready(function() {
     }
 
     function clear() {
-        $(".option").addClass("hidden");
+        //$(".option").addClass("hidden");
     }
 
     function process_keyPress(keyCode) {
@@ -62,6 +68,7 @@ $(document).ready(function() {
 
     function stage_2L_3L_4L() {
         clear();
+        loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -77,6 +84,7 @@ $(document).ready(function() {
 
     function stage_2L_3L_4R() {
         clear();
+        loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -92,6 +100,7 @@ $(document).ready(function() {
 
     function stage_2L_3R_4L() {
         clear();
+        loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -107,6 +116,7 @@ $(document).ready(function() {
 
     function stage_2L_3R_4R() {
         clear();
+        loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -122,6 +132,7 @@ $(document).ready(function() {
 
     function stage_2R_3L_4L() {
         clear();
+        loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -137,6 +148,7 @@ $(document).ready(function() {
 
     function stage_2R_3L_4R() {
         clear();
+        loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -152,6 +164,7 @@ $(document).ready(function() {
 
     function stage_2R_3R_4L() {
         clear();
+        loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -167,6 +180,7 @@ $(document).ready(function() {
 
     function stage_2R_3R_4R() {
         clear();
+        loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -193,7 +207,8 @@ $(document).ready(function() {
                 show_question(
                     "Do you prefer to work hands on?",
                     "Yes",
-                    "No"
+                    "No",
+                    "3_1"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -220,7 +235,8 @@ $(document).ready(function() {
                 show_question(
                     "Would you rather work:",
                     "Start from the ground up",
-                    "Work on an established project"
+                    "Work on an established project",
+                    "3_2"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -248,7 +264,8 @@ $(document).ready(function() {
                 show_question(
                     "Do you prefer:",
                     "Working on user facing products",
-                    "Focusing more on the back-end of things "
+                    "Focusing more on the back-end of things",
+                    "3_3"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -275,7 +292,8 @@ $(document).ready(function() {
                 show_question(
                     "Are you interested in:",
                     "Recognition",
-                    "Financial Incentives"
+                    "Financial Incentives",
+                    "3_4"
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
@@ -309,7 +327,8 @@ $(document).ready(function() {
                 show_question(
                     "Do you prefer:",
                     "Cultivating talent",
-                    "Finding undiscovered talent"
+                    "Finding undiscovered talent",
+                    "2_1"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
@@ -338,7 +357,8 @@ $(document).ready(function() {
                 show_question(
                     "How comfortable are you with ambiguity?",
                     "I’d like to work on pre-assigned tasks",
-                    "I prefer to create my own goals"
+                    "I prefer to create my own goals",
+                    "2_2"
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
@@ -362,8 +382,10 @@ $(document).ready(function() {
     
     function stage_1() {
         clear();
-        //$('audio#test')[0].play()
-        map_top = map_top + up_distance - 223;
+        map_top = map_top + up_distance - 212;
+        /*intro_audio.animate({volume: 0.1}, 1000, function() {
+            console.log("should fade out");
+        });*/
         map.animate({left: map_left, top: map_top}, 1500, function() {
             show_question(
                 "In company do you: ",
@@ -371,6 +393,8 @@ $(document).ready(function() {
                 "wait to be approached",
                 "1_1"
             );
+            // Pausing here until I can figure out fading
+            intro_audio.pause();
             $(document).keypress(function (event) {      
                 process_keyPress(event.keyCode);      
                 // choose an option, rn we'll say they chose Left
@@ -396,7 +420,7 @@ $(document).ready(function() {
     }
 
     function stage_start() {
-
+        intro_audio.play()
         $(document).keypress(function (event) {          
             // choose an option, rn we'll say they chose Left
             if (event.keyCode == 119) { // if press 'w'
