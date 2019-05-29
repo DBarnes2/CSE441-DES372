@@ -43,7 +43,7 @@ $(document).ready(function() {
     }
 
     function clear() {
-        //$(".option").addClass("hidden");
+        $(".option").addClass("hidden");
     }
 
     function process_keyPress(keyCode) {
@@ -402,7 +402,7 @@ $(document).ready(function() {
                 $(document).unbind('keypress');
                 text.hide();
                 if (pressed_key == 97) { // if press 'a'
-                    //$('audio#test')[0].play()
+                    show_question("", "", "", "3_3");
                     stage_2L();
                 } else if (pressed_key == 100) { // if press 'd'
                     //$('audio#test')[0].play()
@@ -414,7 +414,7 @@ $(document).ready(function() {
     
     function stage_1() {
         clear();
-        map_top = map_top + up_distance - 212;
+        map_top = map_top + up_distance - 162;
         /*intro_audio.animate({volume: 0.1}, 1000, function() {
             console.log("should fade out");
         });*/
