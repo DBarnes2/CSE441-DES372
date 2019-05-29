@@ -64,15 +64,21 @@ $(document).ready(function() {
 
     // Replay screen
     function replay() {
-        confirm("Replay?");
-        $(".endscreen").fadeOut();
-        setTimeout(function() {
-            map_left = -4363;
-            map_top = -3150;
-            map.css('left', map_left + 'px');
-            map.css('top', map_top + 'px');
-            stage_1_decision();
-        }, 500);
+        $(document).keypress(function (event) {      
+            process_keyPress(event.keyCode);      
+            $(document).unbind('keypress');
+            text.hide();
+            if (event.keyCode == 119) { // if press 'w'
+                $(".endscreen").fadeOut();
+                setTimeout(function() {
+                    map_left = -4363;
+                    map_top = -3150;
+                    map.css('left', map_left + 'px');
+                    map.css('top', map_top + 'px');
+                    stage_1_decision();
+                }, 500);
+            }  
+        });
     }
 
     //
@@ -107,6 +113,7 @@ $(document).ready(function() {
                 $("#3a").fadeIn(function() {
                     $("#3b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -123,6 +130,7 @@ $(document).ready(function() {
                 $("#5a").fadeIn(function() {
                     $("#5b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -139,6 +147,7 @@ $(document).ready(function() {
                 $("#6a").fadeIn(function() {
                     $("#6b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -155,6 +164,7 @@ $(document).ready(function() {
                 $("#7a").fadeIn(function() {
                     $("#7b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -171,6 +181,7 @@ $(document).ready(function() {
                 $("#8a").fadeIn(function() {
                     $("#8b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -187,6 +198,7 @@ $(document).ready(function() {
                 $("#2a").fadeIn(function() {
                     $("#2b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -203,6 +215,7 @@ $(document).ready(function() {
                 $("#1a").fadeIn(function() {
                     $("#1b").show();
                     $(this).delay(2000).fadeOut();
+                    setTimeout(function() { replay(); }, 4000);
                 });
             });
         });
@@ -226,15 +239,13 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    if (event.keyCode == 119) { // if press 'w'
-                        $(document).unbind('keypress');
-                        text.hide();
-                        if (pressed_key == 97) { // if press 'a'
-                            stage_2L_3L_4L();
-                        } else if (pressed_key == 100) { // if press 'd'
-                            stage_2L_3L_4R();
-                        }
-                    }  
+                    $(document).unbind('keypress');
+                    text.hide();
+                    if (pressed_key == 97) { // if press 'a'
+                        stage_2L_3L_4L();
+                    } else if (pressed_key == 100) { // if press 'd'
+                        stage_2L_3L_4R();
+                    }
                 });
             });
         });
@@ -254,16 +265,13 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    if (event.keyCode == 119) { // if press 'w'
-                        $(document).unbind('keypress');
-                        text.hide();
-                        if (pressed_key == 97) { // if press 'a'
-                            stage_2L_3R_4L();
-                        } else if (pressed_key == 100) { // if press 'd'
-                            stage_2L_3R_4R();
-                        }
-                    }  
-
+                    $(document).unbind('keypress');
+                    text.hide();
+                    if (pressed_key == 97) { // if press 'a'
+                        stage_2L_3R_4L();
+                    } else if (pressed_key == 100) { // if press 'd'
+                        stage_2L_3R_4R();
+                    }
                 });
             });
         });
@@ -283,15 +291,13 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    if (event.keyCode == 119) { // if press 'w'
-                        $(document).unbind('keypress');
-                        text.hide();
-                        if (pressed_key == 97) { // if press 'a'
-                            stage_2R_3L_4L();
-                        } else if (pressed_key == 100) { // if press 'd'
-                            stage_2R_3L_4R();
-                        }
-                    } 
+                    $(document).unbind('keypress');
+                    text.hide();
+                    if (pressed_key == 97) { // if press 'a'
+                        stage_2R_3L_4L();
+                    } else if (pressed_key == 100) { // if press 'd'
+                        stage_2R_3L_4R();
+                    }
                 });
             });
         });
@@ -311,15 +317,13 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    if (event.keyCode == 119) { // if press 'w'
-                        $(document).unbind('keypress');
-                        text.hide();
-                        if (pressed_key == 97) { // if press 'a'
-                            stage_2R_3R_4L();
-                        } else if (pressed_key == 100) { // if press 'd'
-                            stage_2R_3R_4R();
-                        }
-                    }  
+                    $(document).unbind('keypress');
+                    text.hide();
+                    if (pressed_key == 97) { // if press 'a'
+                        stage_2R_3R_4L();
+                    } else if (pressed_key == 100) { // if press 'd'
+                        stage_2R_3R_4R();
+                    }
 
                 });
             });
@@ -346,15 +350,13 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
-                    if (event.keyCode == 119) { // if press 'w'
-                        $(document).unbind('keypress');
-                        text.hide();
-                        if (pressed_key == 97) { // if press 'a'
-                            stage_2L_3L();
-                        } else if (pressed_key == 100) { // if press 'd'
-                            stage_2L_3R();
-                        }
-                    }  
+                    $(document).unbind('keypress');
+                    text.hide();
+                    if (pressed_key == 97) { // if press 'a'
+                        stage_2L_3L();
+                    } else if (pressed_key == 100) { // if press 'd'
+                        stage_2L_3R();
+                    }
                 });
             });
         });
@@ -376,15 +378,13 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
-                    if (event.keyCode == 119) { // if press 'w'
-                        $(document).unbind('keypress');
-                        text.hide();
-                        if (pressed_key == 97) { // if press 'a'
-                            stage_2R_3L();
-                        } else if (pressed_key == 100) { // if press 'd'
-                            stage_2R_3R();
-                        }
-                    } 
+                    $(document).unbind('keypress');
+                    text.hide();
+                    if (pressed_key == 97) { // if press 'a'
+                        stage_2R_3L();
+                    } else if (pressed_key == 100) { // if press 'd'
+                        stage_2R_3R();
+                    }
                 });
             });
         });
@@ -398,17 +398,15 @@ $(document).ready(function() {
         $(document).keypress(function (event) {      
             process_keyPress(event.keyCode);      
             // choose an option, rn we'll say they chose Left
-            if (event.keyCode == 119) { // if press 'w'
-                $(document).unbind('keypress');
-                text.hide();
-                if (pressed_key == 97) { // if press 'a'
-                    show_question("", "", "", "3_3");
-                    stage_2L();
-                } else if (pressed_key == 100) { // if press 'd'
-                    //$('audio#test')[0].play()
-                    stage_2R();
-                }
-            }  
+            $(document).unbind('keypress');
+            text.hide();
+            if (pressed_key == 97) { // if press 'a'
+                show_question("", "", "", "3_3");
+                stage_2L();
+            } else if (pressed_key == 100) { // if press 'd'
+                //$('audio#test')[0].play()
+                stage_2R();
+            }
         });
     }
     
