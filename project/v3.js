@@ -69,13 +69,14 @@ $(document).ready(function() {
             $(document).unbind('keypress');
             text.hide();
             if (event.keyCode == 119) { // if press 'w'
+                clear();
                 $(".endscreen").fadeOut();
                 setTimeout(function() {
                     map_left = -4363;
                     map_top = -3150;
                     map.css('left', map_left + 'px');
                     map.css('top', map_top + 'px');
-                    stage_1_decision();
+                    stage_1();
                 }, 500);
             }  
         });
@@ -395,13 +396,20 @@ $(document).ready(function() {
     // 
 
     function stage_1_decision() {
+        console.log("stage 1");
+        show_question(
+            "In company do you: ",
+            "initiate conversation",
+            "wait to be approached",
+            "1_1"
+        );
         $(document).keypress(function (event) {      
             process_keyPress(event.keyCode);      
             // choose an option, rn we'll say they chose Left
             $(document).unbind('keypress');
             text.hide();
             if (pressed_key == 97) { // if press 'a'
-                show_question("", "", "", "3_3");
+                //show_question("", "", "", "3_3");
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
                 //$('audio#test')[0].play()
@@ -415,12 +423,12 @@ $(document).ready(function() {
         map_top = map_top + up_distance - 108;
         $('#intro').animate({volume: 0.0}, 3000);
         map.animate({left: map_left, top: map_top}, 3000, function() {
-            show_question(
+            /*show_question(
                 "In company do you: ",
                 "initiate conversation",
                 "wait to be approached",
                 "1_1"
-            );
+            );*/
             stage_1_decision();
         });
 
