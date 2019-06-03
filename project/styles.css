@@ -73,7 +73,12 @@ body {
     border-radius: 10px;
 }
 
-#screen {
+#replay_screen {
+    position: fixed;
+    z-index: 1000;
+}
+
+#screen, #replay_screen {
     width: 100%;
     height: 100%;
     /* overflow: hidden; */
