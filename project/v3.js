@@ -68,7 +68,7 @@ $(document).ready(function() {
 
     // Replay screen
     function replay() {
-        $("#screen").html('<img class="endscreen" src="8-1.png" id="8a"><img class="endscreen" src="8-1-1.png" id="8b"><img class="endscreen" src="8-1-2.png" id="8c">');
+        $("#replay_screen").html('<img class="endscreen" src="8-1.png" id="8a"><img class="endscreen" src="8-1-1.png" id="8b"><img class="endscreen" src="8-1-2.png" id="8c">');
         $("#8a").fadeIn(function() {
             $("#8b").show();
             $(this).delay(2000).fadeOut();
