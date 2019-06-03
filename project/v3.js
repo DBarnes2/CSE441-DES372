@@ -63,6 +63,8 @@ $(document).ready(function() {
             console.log("should select right");
             $(".right-select").addClass("selected");
             $(".left-select").removeClass("selected");
+        } else if (keyCode == 115) {
+          
         }
     }
 
