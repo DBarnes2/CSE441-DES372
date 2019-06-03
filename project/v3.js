@@ -72,13 +72,13 @@ $(document).ready(function() {
         $("#8a").fadeIn(function() {
             $("#8b").show();
             $(this).delay(2000).fadeOut();
-            setTimeout(function() { 
+            setTimeout(function() {
                 $("#8c").show();
                 $("#8b").delay(2000).fadeOut();
             }, 4000);
         });
-        $(document).keypress(function (event) {      
-            process_keyPress(event.keyCode);      
+        $(document).keypress(function (event) {
+            process_keyPress(event.keyCode);
             //$(document).unbind('keypress');
             text.hide();
             if (event.keyCode == 119) { // if press 'w'
@@ -92,7 +92,7 @@ $(document).ready(function() {
                     map.css('top', map_top + 'px');
                     stage_1();
                 }, 500);
-            }  
+            }
         });
     }
 
@@ -236,9 +236,9 @@ $(document).ready(function() {
         });
     }
 
-    // 
+    //
     // Stage 3
-    // 
+    //
 
     function stage_2L_3L() {
         clear();
@@ -252,7 +252,7 @@ $(document).ready(function() {
                     "No",
                     "3_1"
                 );
-                $(document).keypress(function (event) {            
+                $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
@@ -278,7 +278,7 @@ $(document).ready(function() {
                     "Work on an established project",
                     "3_2"
                 );
-                $(document).keypress(function (event) {            
+                $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     if (pressed_key == 97) { // if press 'a'
@@ -303,7 +303,7 @@ $(document).ready(function() {
                     "Focusing more on the back-end of things",
                     "3_3"
                 );
-                $(document).keypress(function (event) {            
+                $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
@@ -329,7 +329,7 @@ $(document).ready(function() {
                     "Financial Incentives",
                     "3_4"
                 );
-                $(document).keypress(function (event) {            
+                $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
@@ -344,9 +344,9 @@ $(document).ready(function() {
         });
     }
 
-    // 
+    //
     // Stage 2
-    // 
+    //
 
     function stage_2L() {
         clear();
@@ -362,7 +362,7 @@ $(document).ready(function() {
                     "Finding undiscovered talent",
                     "2_1"
                 );
-                $(document).keypress(function (event) {    
+                $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
@@ -390,7 +390,7 @@ $(document).ready(function() {
                     "I prefer to create my own goals",
                     "2_2"
                 );
-                $(document).keypress(function (event) {    
+                $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
@@ -404,9 +404,9 @@ $(document).ready(function() {
         });
     }
 
-    // 
+    //
     // Stage 1
-    // 
+    //
 
     function stage_1_decision() {
         console.log("stage 1");
@@ -416,27 +416,27 @@ $(document).ready(function() {
             "wait to be approached",
             "1_1"
         );
-        $(document).keypress(function (event) {      
-            process_keyPress(event.keyCode);      
+        $(document).keypress(function (event) {
+            process_keyPress(event.keyCode);
             // choose an option, rn we'll say they chose Left
             //$(document).unbind('keypress');
             text.hide();
             if (pressed_key == 97) { // if press 'a'
-                show_question("", "", "", "1_1_L");
-                map.animate({}, 1500);
+                //show_question("", "", "", "1_1_L");
+                //map.animate({}, 1500);
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
-                clear();
+                //clear();
                 //show_question("", "", "", "1_1_R");
                 //map.animate({opactiy: 100}, 4000);
-                clear();
-                show_question("", "", "", "1_1_R");
-                map.animate({left: map_left, top: map_top}, 3000);
+                //clear();
+                //show_question("", "", "", "1_1_R");
+                //map.animate({left: map_left, top: map_top}, 3000);
                 stage_2R();
             }
         });
     }
-    
+
     function stage_1() {
         clear();
         map_top = map_top + up_distance + stage_1_offset;
@@ -463,19 +463,19 @@ $(document).ready(function() {
         console.log("Map Top = " + map_top);
         // set this here because it changes by display
         start_top = map_top;
-        $(document).keypress(function (event) {          
+        $(document).keypress(function (event) {
             // choose an option, rn we'll say they chose Left
             if (event.keyCode == 119) { // if press 'w'
                 $(document).unbind('keypress');
                 $("#start").fadeOut('slow', function() {
                     stage_1();
                 });
-            }  
+            }
         });
     }
 
     // Do stuff!
     stage_start();
-    
-    
+
+
 });
