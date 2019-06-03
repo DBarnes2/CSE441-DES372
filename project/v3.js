@@ -4,6 +4,7 @@ $(document).ready(function() {
     const left_distance = 2132;
     const left_distance_2 = 1345;
     const left_distance_3 = 545;
+    const stage_1_offset = -108;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
     image_1_1 = $("#1_1"),
@@ -13,6 +14,7 @@ $(document).ready(function() {
     console_counter = 1,
     // Initially pressed key: 'a'
     pressed_key = 97;
+    var start_top = 0;
 
     // audio
     var test_audio = $('audio#test')[0];
@@ -44,6 +46,8 @@ $(document).ready(function() {
 
     function clear() {
         $(".option").addClass("hidden");
+        pressed_key = 0;
+        $(document).unbind('keypress');
     }
 
     function process_keyPress(keyCode) {
@@ -66,14 +70,15 @@ $(document).ready(function() {
     function replay() {
         $(document).keypress(function (event) {      
             process_keyPress(event.keyCode);      
-            $(document).unbind('keypress');
+            //$(document).unbind('keypress');
             text.hide();
             if (event.keyCode == 119) { // if press 'w'
                 clear();
                 $(".endscreen").fadeOut();
                 setTimeout(function() {
                     map_left = -4363;
-                    map_top = -3150;
+                    map_top = start_top;
+                    //map_top = -0;
                     map.css('left', map_left + 'px');
                     map.css('top', map_top + 'px');
                     stage_1();
@@ -240,7 +245,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    $(document).unbind('keypress');
+                    //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
                         stage_2L_3L_4L();
@@ -266,8 +271,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    $(document).unbind('keypress');
-                    text.hide();
+                    //$(document).unbind('keypress');
                     if (pressed_key == 97) { // if press 'a'
                         stage_2L_3R_4L();
                     } else if (pressed_key == 100) { // if press 'd'
@@ -292,7 +296,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    $(document).unbind('keypress');
+                    //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
                         stage_2R_3L_4L();
@@ -318,7 +322,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {            
                     process_keyPress(event.keyCode);
-                    $(document).unbind('keypress');
+                    //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
                         stage_2R_3R_4L();
@@ -351,7 +355,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
-                    $(document).unbind('keypress');
+                    //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
                         stage_2L_3L();
@@ -379,7 +383,7 @@ $(document).ready(function() {
                 );
                 $(document).keypress(function (event) {    
                     process_keyPress(event.keyCode);
-                    $(document).unbind('keypress');
+                    //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
                         stage_2R_3L();
@@ -406,13 +410,19 @@ $(document).ready(function() {
         $(document).keypress(function (event) {      
             process_keyPress(event.keyCode);      
             // choose an option, rn we'll say they chose Left
-            $(document).unbind('keypress');
+            //$(document).unbind('keypress');
             text.hide();
             if (pressed_key == 97) { // if press 'a'
-                //show_question("", "", "", "3_3");
+                show_question("", "", "", "1_1_L");
+                map.animate({}, 1500);
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
-                //$('audio#test')[0].play()
+                clear();
+                //show_question("", "", "", "1_1_R");
+                //map.animate({opactiy: 100}, 4000);
+                clear();
+                show_question("", "", "", "1_1_R");
+                map.animate({left: map_left, top: map_top}, 3000);
                 stage_2R();
             }
         });
@@ -420,7 +430,7 @@ $(document).ready(function() {
     
     function stage_1() {
         clear();
-        map_top = map_top + up_distance - 108;
+        map_top = map_top + up_distance + stage_1_offset;
         $('#intro').animate({volume: 0.0}, 3000);
         map.animate({left: map_left, top: map_top}, 3000, function() {
             /*show_question(
@@ -441,6 +451,9 @@ $(document).ready(function() {
 
     function stage_start() {
         intro_audio.play()
+        console.log("Map Top = " + map_top);
+        // set this here because it changes by display
+        start_top = map_top;
         $(document).keypress(function (event) {          
             // choose an option, rn we'll say they chose Left
             if (event.keyCode == 119) { // if press 'w'
