@@ -64,6 +64,15 @@ $(document).ready(function() {
 
     // Replay screen
     function replay() {
+        $("#screen").html('<img class="endscreen" src="8-1.png" id="8a"><img class="endscreen" src="8-1-1.png" id="8b"><img class="endscreen" src="8-1-2.png" id="8c">');
+        $("#8a").fadeIn(function() {
+            $("#8b").show();
+            $(this).delay(2000).fadeOut();
+            setTimeout(function() { 
+                $("#8c").show();
+                $("#8b").delay(2000).fadeOut();
+            }, 4000);
+        });
         $(document).keypress(function (event) {      
             process_keyPress(event.keyCode);      
             $(document).unbind('keypress');
@@ -454,5 +463,6 @@ $(document).ready(function() {
 
     // Do stuff!
     stage_start();
+    
     
 });
