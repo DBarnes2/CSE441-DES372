@@ -14,7 +14,10 @@ $(document).ready(function() {
     console_counter = 1,
     // Initially pressed key: 'a'
     pressed_key = 97;
-    var start_top = 0;
+    start_top = 0,
+    left_stop = 0,
+    top_stop = 0,
+    last_option = ""; 
 
     // audio
     var test_audio = $('audio#test')[0];
@@ -42,6 +45,7 @@ $(document).ready(function() {
         // $(".right-option").removeClass("selected");
         $(".left-option").removeClass("selected");*/
         $("." + option).removeClass("hidden");
+        last_option = option;
     }
 
     function clear() {
@@ -51,6 +55,7 @@ $(document).ready(function() {
     }
 
     function process_keyPress(keyCode) {
+        console.log(keyCode);
         // a == left
         if (keyCode == 97) {
             pressed_key = 97;
@@ -63,9 +68,19 @@ $(document).ready(function() {
             console.log("should select right");
             $(".right-select").addClass("selected");
             $(".left-select").removeClass("selected");
-        } else if (keyCode == 115) {
-          
+        } else if (keyCode == 115) { // s == down 
+            clear();
+            pressed_key = 115;
         }
+    }
+
+    function animate_back(ask_again) {
+        // console.log("animate_back");
+        map.animate({left: map_left, top: top_stop}, 1500, function() {
+            map.animate({left: left_stop, top: top_stop}, 1500, function() {
+                ask_again();
+            });
+        });
     }
 
     // Replay screen
@@ -104,6 +119,7 @@ $(document).ready(function() {
 
     function stage_2L_3L_4L() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -121,6 +137,7 @@ $(document).ready(function() {
 
     function stage_2L_3L_4R() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -138,6 +155,7 @@ $(document).ready(function() {
 
     function stage_2L_3R_4L() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -155,6 +173,7 @@ $(document).ready(function() {
 
     function stage_2L_3R_4R() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -172,6 +191,7 @@ $(document).ready(function() {
 
     function stage_2R_3L_4L() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -189,6 +209,7 @@ $(document).ready(function() {
 
     function stage_2R_3L_4R() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -206,6 +227,7 @@ $(document).ready(function() {
 
     function stage_2R_3R_4L() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -223,6 +245,7 @@ $(document).ready(function() {
 
     function stage_2R_3R_4R() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -244,6 +267,7 @@ $(document).ready(function() {
 
     function stage_2L_3L() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -262,6 +286,8 @@ $(document).ready(function() {
                         stage_2L_3L_4L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3L_4R();
+                    } else if (pressed_key == 115) { // s == down
+                        animate_back(stage_2L);
                     }
                 });
             });
@@ -270,6 +296,7 @@ $(document).ready(function() {
 
     function stage_2L_3R() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -287,6 +314,8 @@ $(document).ready(function() {
                         stage_2L_3R_4L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3R_4R();
+                    } else if (pressed_key == 115) { // s == down
+                        animate_back(stage_2L);
                     }
                 });
             });
@@ -295,6 +324,7 @@ $(document).ready(function() {
 
     function stage_2R_3L() {
         clear();
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -313,6 +343,8 @@ $(document).ready(function() {
                         stage_2R_3L_4L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3L_4R();
+                    } else if (pressed_key == 115) { // s == down
+                        animate_back(stage_2R);
                     }
                 });
             });
@@ -321,6 +353,9 @@ $(document).ready(function() {
 
     function stage_2R_3R() {
         clear();
+
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
+
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -339,8 +374,9 @@ $(document).ready(function() {
                         stage_2R_3R_4L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3R_4R();
+                    } else if (pressed_key == 115) { // s == down
+                        animate_back(stage_2R);
                     }
-
                 });
             });
         });
@@ -353,6 +389,7 @@ $(document).ready(function() {
     function stage_2L() {
         clear();
         //$('audio#test')[0].play()
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left + left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
@@ -372,6 +409,8 @@ $(document).ready(function() {
                         stage_2L_3L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3R();
+                    } else if (pressed_key == 115) { // s == down
+                        animate_back(stage_1_decision);
                     }
                 });
             });
@@ -381,6 +420,7 @@ $(document).ready(function() {
     function stage_2R() {
         clear();
         //$('audio#test')[0].play()
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left - left_distance - 20;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
@@ -396,10 +436,15 @@ $(document).ready(function() {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
+                    console_pos();
+                    console.log("pressed key is " + pressed_key);
                     if (pressed_key == 97) { // if press 'a'
                         stage_2R_3L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3R();
+                    } else if (pressed_key == 115) { // s == down
+                        console.log("pressed back!");
+                        animate_back(stage_1_decision);
                     }
                 });
             });
@@ -434,6 +479,7 @@ $(document).ready(function() {
                 //clear();
                 //show_question("", "", "", "1_1_R");
                 //map.animate({left: map_left, top: map_top}, 3000);
+                console_pos();
                 stage_2R();
             }
         });
@@ -441,6 +487,7 @@ $(document).ready(function() {
 
     function stage_1() {
         clear();
+        last_option = "";
         map_top = map_top + up_distance + stage_1_offset;
         $('#intro').animate({volume: 0.0}, 3000);
         map.animate({left: map_left, top: map_top}, 3000, function() {
@@ -461,7 +508,7 @@ $(document).ready(function() {
     }
 
     function stage_start() {
-        intro_audio.play()
+        intro_audio.play();
         console.log("Map Top = " + map_top);
         // set this here because it changes by display
         start_top = map_top;
