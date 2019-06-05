@@ -20,6 +20,7 @@ $(document).ready(function() {
     var test_audio = $('audio#test')[0];
     var intro_audio = $('audio#intro')[0];
     var loading_audio = $('audio#loading')[0];
+    var footstep_audio = $('audio#footstep')[0];
 
 
     // This function displays the map's position for debugging!
@@ -64,12 +65,13 @@ $(document).ready(function() {
             $(".right-select").addClass("selected");
             $(".left-select").removeClass("selected");
         } else if (keyCode == 115) {
-          
+
         }
     }
 
     // Replay screen
     function replay() {
+      clear();
         $("#replay_screen").html('<img class="endscreen" src="8-1.png" id="8a"><img class="endscreen" src="8-1-1.png" id="8b"><img class="endscreen" src="8-1-2.png" id="8c">');
         $("#8a").fadeIn(function() {
             $("#8b").show();
@@ -77,9 +79,26 @@ $(document).ready(function() {
             setTimeout(function() {
                 $("#8c").show();
                 $("#8b").delay(2000).fadeOut();
+                $(document).keypress(function (event) {
+                    process_keyPress(event.keyCode);
+                    //$(document).unbind('keypress');
+                    text.hide();
+                    if (event.keyCode == 119) { // if press 'w'
+                        clear();
+                        $(".endscreen").fadeOut();
+                        setTimeout(function() {
+                            map_left = -4363;
+                            map_top = start_top;
+                            //map_top = -0;
+                            map.css('left', map_left + 'px');
+                            map.css('top', map_top + 'px');
+                            stage_1();
+                        }, 500);
+                    }
+                });
             }, 4000);
         });
-        $(document).keypress(function (event) {
+        /*$(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             //$(document).unbind('keypress');
             text.hide();
@@ -95,7 +114,7 @@ $(document).ready(function() {
                     stage_1();
                 }, 500);
             }
-        });
+        });*/w
     }
 
     //
@@ -357,6 +376,7 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
+            footstep_audio.pause();
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Do you prefer:",
@@ -385,6 +405,7 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
+            footstep_audio.pause();
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "How comfortable are you with ambiguity?",
@@ -426,6 +447,7 @@ $(document).ready(function() {
             if (pressed_key == 97) { // if press 'a'
                 //show_question("", "", "", "1_1_L");
                 //map.animate({}, 1500);
+                footstep_audio.play();
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
                 //clear();
@@ -461,7 +483,7 @@ $(document).ready(function() {
     }
 
     function stage_start() {
-        intro_audio.play()
+        intro_audio.play();
         console.log("Map Top = " + map_top);
         // set this here because it changes by display
         start_top = map_top;
