@@ -297,6 +297,7 @@ $(document).ready(function() {
                     "No",
                     "3_1"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -326,6 +327,7 @@ $(document).ready(function() {
                     "Work on an established project",
                     "3_2"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -354,6 +356,7 @@ $(document).ready(function() {
                     "Focusing more on the back-end of things",
                     "3_3"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -385,6 +388,7 @@ $(document).ready(function() {
                     "Financial Incentives",
                     "3_4"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -411,9 +415,9 @@ $(document).ready(function() {
         left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left + left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
-            //$('audio#test')[0].play()
+            $('audio#test')[0].play()
             map_top = map_top + up_distance;
-            $('#footstep').animate({volume: 0.0}, 1000);
+            //$('#footstep').animate({volume: 0.0}, 1000);
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "Do you prefer:",
@@ -421,18 +425,22 @@ $(document).ready(function() {
                     "Finding undiscovered talent",
                     "2_1"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
-                        $('#footstep').animate({volume: 100.0}, 1000);
+                        //$('#footstep').animate({volume: 100.0}, 1000);
+                        $('#footstep').animate({volume: 1.0}, 100);
                         stage_2L_3L();
                     } else if (pressed_key == 100) { // if press 'd'
-                        $('#footstep').animate({volume: 100.0}, 1000);
+                        //$('#footstep').animate({volume: 100.0}, 1000);
+                        $('#footstep').animate({volume: 1.0}, 100);
                         stage_2L_3R();
                     } else if (pressed_key == 115) { // s == down
-                        $('#footstep').animate({volume: 100.0}, 1000);
+                        //$('#footstep').animate({volume: 100.0}, 1000);
+                        $('#footstep').animate({volume: 1.0}, 100);
                         animate_back(stage_1_decision);
                     }
                 });
@@ -448,7 +456,6 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
-            $('#footstep').animate({volume: 0.0}, 1000);
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 show_question(
                     "How comfortable are you with ambiguity?",
@@ -456,6 +463,7 @@ $(document).ready(function() {
                     "I prefer to create my own goals",
                     "2_2"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -463,14 +471,17 @@ $(document).ready(function() {
                     console_pos();
                     console.log("pressed key is " + pressed_key);
                     if (pressed_key == 97) { // if press 'a'
-                        $('#footstep').animate({volume: 100.0}, 1000);
+                        //$('#footstep').animate({volume: 100.0}, 1000);
+                        $('#footstep').animate({volume: 1.0}, 100);
                         stage_2R_3L();
                     } else if (pressed_key == 100) { // if press 'd'
-                        $('#footstep').animate({volume: 100.0}, 1000);
+                        //$('#footstep').animate({volume: 100.0}, 1000);
+                        $('#footstep').animate({volume: 1.0}, 100);
                         stage_2R_3R();
                     } else if (pressed_key == 115) { // s == down
                         console.log("pressed back!");
-                        $('#footstep').animate({volume: 100.0}, 1000);
+                        //$('#footstep').animate({volume: 100.0}, 1000);
+                        $('#footstep').animate({volume: 1.0}, 100);
                         animate_back(stage_1_decision);
                     }
                 });
@@ -490,7 +501,7 @@ $(document).ready(function() {
             "wait to be approached",
             "1_1"
         );
-        $('#footstep').animate({volume: 0.0}, 1000);
+        $('#footstep').animate({volume: 0.0}, 100);
         $(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             // choose an option, rn we'll say they chose Left
@@ -499,7 +510,9 @@ $(document).ready(function() {
             if (pressed_key == 97) { // if press 'a'
                 //show_question("", "", "", "1_1_L");
                 //map.animate({}, 1500);
-                $('#footstep').animate({volume: 100.0}, 1000);
+                //$('#footstep').animate({volume: 100.0}, 1000);
+                footstep_audio.play();
+                $('#footstep').animate({volume: 1.0}, 100);
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
                 //clear();
@@ -509,7 +522,9 @@ $(document).ready(function() {
                 //show_question("", "", "", "1_1_R");
                 //map.animate({left: map_left, top: map_top}, 3000);
                 console_pos();
-                $('#footstep').animate({volume: 100.0}, 1000);
+                //$('#footstep').animate({volume: 100.0}, 1000);
+                footstep_audio.play();
+                $('#footstep').animate({volume: 1.0}, 100);
                 stage_2R();
             }
         });
