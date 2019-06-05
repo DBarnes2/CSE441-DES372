@@ -410,7 +410,7 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
-            footstep_audio.pause();
+            $('#footstep').animate({volume: 0.0}, 1000);
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 left_stop = map_left; top_stop = map_top; // save checkpoint position
                 show_question(
@@ -424,10 +424,13 @@ $(document).ready(function() {
                     //$(document).unbind('keypress');
                     text.hide();
                     if (pressed_key == 97) { // if press 'a'
+                        $('#footstep').animate({volume: 100.0}, 1000);
                         stage_2L_3L();
                     } else if (pressed_key == 100) { // if press 'd'
+                        $('#footstep').animate({volume: 100.0}, 1000);
                         stage_2L_3R();
                     } else if (pressed_key == 115) { // s == down
+                        $('#footstep').animate({volume: 100.0}, 1000);
                         animate_back(stage_1_decision);
                     }
                 });
@@ -442,7 +445,7 @@ $(document).ready(function() {
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
-            footstep_audio.pause();
+            $('#footstep').animate({volume: 0.0}, 1000);
             map.animate({left: map_left, top: map_top}, 1500, function() {
                 left_stop = map_left; top_stop = map_top; // save checkpoint position
                 show_question(
@@ -458,11 +461,14 @@ $(document).ready(function() {
                     console_pos();
                     console.log("pressed key is " + pressed_key);
                     if (pressed_key == 97) { // if press 'a'
+                        $('#footstep').animate({volume: 100.0}, 1000);
                         stage_2R_3L();
                     } else if (pressed_key == 100) { // if press 'd'
+                        $('#footstep').animate({volume: 100.0}, 1000);
                         stage_2R_3R();
                     } else if (pressed_key == 115) { // s == down
                         console.log("pressed back!");
+                        $('#footstep').animate({volume: 100.0}, 1000);
                         animate_back(stage_1_decision);
                     }
                 });
@@ -483,6 +489,7 @@ $(document).ready(function() {
             "wait to be approached",
             "1_1"
         );
+        $('#footstep').animate({volume: 0.0}, 1000);
         $(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             // choose an option, rn we'll say they chose Left
@@ -491,7 +498,7 @@ $(document).ready(function() {
             if (pressed_key == 97) { // if press 'a'
                 //show_question("", "", "", "1_1_L");
                 //map.animate({}, 1500);
-                footstep_audio.play();
+                $('#footstep').animate({volume: 100.0}, 1000);
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
                 //clear();
@@ -501,6 +508,7 @@ $(document).ready(function() {
                 //show_question("", "", "", "1_1_R");
                 //map.animate({left: map_left, top: map_top}, 3000);
                 console_pos();
+                $('#footstep').animate({volume: 100.0}, 1000);
                 stage_2R();
             }
         });
@@ -529,6 +537,8 @@ $(document).ready(function() {
 
     function stage_start() {
         intro_audio.play();
+        footstep_audio.play();
+        $('#footstep').animate({volume: 0.0}, 1);
         console.log("Map Top = " + map_top);
         // set this here because it changes by display
         start_top = map_top;
