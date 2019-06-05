@@ -371,12 +371,14 @@ $(document).ready(function() {
     }
 
     function stage_2R_3R() {
-        clear();        
+        clear();
+
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
+
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
-                left_stop = map_left; top_stop = map_top; // save checkpoint position
                 show_question(
                     "Are you interested in:",
                     "Recognition",
@@ -406,13 +408,13 @@ $(document).ready(function() {
     function stage_2L() {
         clear();
         //$('audio#test')[0].play()
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left + left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             $('#footstep').animate({volume: 0.0}, 1000);
             map.animate({left: map_left, top: map_top}, 1500, function() {
-                left_stop = map_left; top_stop = map_top; // save checkpoint position
                 show_question(
                     "Do you prefer:",
                     "Cultivating talent",
@@ -441,13 +443,13 @@ $(document).ready(function() {
     function stage_2R() {
         clear();
         //$('audio#test')[0].play()
+        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left - left_distance - 20;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             $('#footstep').animate({volume: 0.0}, 1000);
             map.animate({left: map_left, top: map_top}, 1500, function() {
-                left_stop = map_left; top_stop = map_top; // save checkpoint position
                 show_question(
                     "How comfortable are you with ambiguity?",
                     "I’d like to work on pre-assigned tasks",
@@ -481,7 +483,6 @@ $(document).ready(function() {
     //
 
     function stage_1_decision() {
-        map_top = map_top + up_distance + stage_1_offset;
         console.log("stage 1");
         show_question(
             "In company do you: ",
@@ -517,6 +518,7 @@ $(document).ready(function() {
     function stage_1() {
         clear();
         last_option = "";
+        map_top = map_top + up_distance + stage_1_offset;
         $('#intro').animate({volume: 0.0}, 3000);
         map.animate({left: map_left, top: map_top}, 3000, function() {
             /*show_question(
