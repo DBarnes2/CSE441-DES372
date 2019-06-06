@@ -14,9 +14,7 @@ $(document).ready(function() {
     console_counter = 1,
     // Initially pressed key: 'a'
     pressed_key = 97;
-    start_top = 0,
-    left_stop = 0, 
-    top_stop = 0; 
+    start_top = 0; 
 
     // keep track of steps and options
     // contains arrays of [map_left, map_top, last_stage]
@@ -76,7 +74,7 @@ $(document).ready(function() {
         }
     }
 
-    function animate_back(ask_again = null) {
+    function animate_back() {
         // console.log("animate_back");
         clear();
         last_array = checkpoints.pop();
@@ -129,7 +127,6 @@ $(document).ready(function() {
 
     function stage_2L_3L_4L() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -147,7 +144,6 @@ $(document).ready(function() {
 
     function stage_2L_3L_4R() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -165,7 +161,6 @@ $(document).ready(function() {
 
     function stage_2L_3R_4L() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -183,7 +178,6 @@ $(document).ready(function() {
 
     function stage_2L_3R_4R() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -201,7 +195,6 @@ $(document).ready(function() {
 
     function stage_2R_3L_4L() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -219,7 +212,6 @@ $(document).ready(function() {
 
     function stage_2R_3L_4R() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -237,7 +229,6 @@ $(document).ready(function() {
 
     function stage_2R_3R_4L() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left + left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -255,7 +246,6 @@ $(document).ready(function() {
 
     function stage_2R_3R_4R() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         loading_audio.play();
         map_left = map_left - left_distance_3;
         map.animate({left: map_left, top: map_top}, 1500, function() {
@@ -277,11 +267,12 @@ $(document).ready(function() {
 
     function stage_2L_3L() {
         clear();
-        checkpoints.push(["2L", map_left, map_top, stage_2L]);
+        checkpoints.push(["2L", map_left, map_top, stage_2L_decision]);
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
+                console.log(map_left, map_top);
                 show_question(
                     "Do you prefer to work hands on?",
                     "Yes",
@@ -297,7 +288,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3L_4R();
                     } else if (pressed_key == 115) { // s == down
-                        animate_back(stage_2L);
+                        animate_back();
                     }
                 });
             });
@@ -306,7 +297,7 @@ $(document).ready(function() {
 
     function stage_2L_3R() {
         clear();
-        checkpoints.push(["2L", map_left, map_top, stage_2L]);
+        checkpoints.push(["2L", map_left, map_top, stage_2L_decision]);
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -325,7 +316,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3R_4R();
                     } else if (pressed_key == 115) { // s == down
-                        animate_back(stage_2L);
+                        animate_back();
                     }
                 });
             });
@@ -334,7 +325,7 @@ $(document).ready(function() {
 
     function stage_2R_3L() {
         clear();
-        checkpoints.push(["2R", map_left, map_top, stage_2R]);
+        checkpoints.push(["2R", map_left, map_top, stage_2R_decision]);
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -354,7 +345,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3L_4R();
                     } else if (pressed_key == 115) { // s == down
-                        animate_back(stage_2R);
+                        animate_back();
                     }
                 });
             });
@@ -363,7 +354,7 @@ $(document).ready(function() {
 
     function stage_2R_3R() {
         clear();
-        checkpoints.push(["2R", map_left, map_top, stage_2R]);
+        checkpoints.push(["2R", map_left, map_top, stage_2R_decision]);
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -383,7 +374,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3R_4R();
                     } else if (pressed_key == 115) { // s == down
-                        animate_back(stage_2R);
+                        animate_back();
                     }
                 });
             });
@@ -394,6 +385,28 @@ $(document).ready(function() {
     // Stage 2
     //
 
+    function stage_2L_decision() {
+        console.log(map_left, map_top);
+        show_question(
+            "Do you prefer:",
+            "Cultivating talent",
+            "Finding undiscovered talent",
+            "2_1"
+        );
+        $(document).keypress(function (event) {
+            process_keyPress(event.keyCode);
+            //$(document).unbind('keypress');
+            text.hide();
+            if (pressed_key == 97) { // if press 'a'
+                stage_2L_3L();
+            } else if (pressed_key == 100) { // if press 'd'
+                stage_2L_3R();
+            } else if (pressed_key == 115) { // s == down
+                animate_back();
+            }
+        });
+    }
+
     function stage_2L() {
         clear();
         //$('audio#test')[0].play()
@@ -402,26 +415,30 @@ $(document).ready(function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
-                console.log(map_left, map_top);
-                show_question(
-                    "Do you prefer:",
-                    "Cultivating talent",
-                    "Finding undiscovered talent",
-                    "2_1"
-                );
-                $(document).keypress(function (event) {
-                    process_keyPress(event.keyCode);
-                    //$(document).unbind('keypress');
-                    text.hide();
-                    if (pressed_key == 97) { // if press 'a'
-                        stage_2L_3L();
-                    } else if (pressed_key == 100) { // if press 'd'
-                        stage_2L_3R();
-                    } else if (pressed_key == 115) { // s == down
-                        animate_back(stage_1_decision);
-                    }
-                });
+                stage_2L_decision();
             });
+        });
+    }
+
+    function stage_2R_decision() {
+        console.log(map_left, map_top);
+        show_question(
+            "How comfortable are you with ambiguity?",
+            "I’d like to work on pre-assigned tasks",
+            "I prefer to create my own goals",
+            "2_2"
+        );
+        $(document).keypress(function (event) {
+            process_keyPress(event.keyCode);
+            //$(document).unbind('keypress');
+            text.hide();
+            if (pressed_key == 97) { // if press 'a'
+                stage_2R_3L();
+            } else if (pressed_key == 100) { // if press 'd'
+                stage_2R_3R();
+            } else if (pressed_key == 115) { // s == down
+                animate_back();
+            }
         });
     }
 
@@ -434,25 +451,7 @@ $(document).ready(function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
-                console.log(map_left, map_top);
-                show_question(
-                    "How comfortable are you with ambiguity?",
-                    "I’d like to work on pre-assigned tasks",
-                    "I prefer to create my own goals",
-                    "2_2"
-                );
-                $(document).keypress(function (event) {
-                    process_keyPress(event.keyCode);
-                    //$(document).unbind('keypress');
-                    text.hide();
-                    if (pressed_key == 97) { // if press 'a'
-                        stage_2R_3L();
-                    } else if (pressed_key == 100) { // if press 'd'
-                        stage_2R_3R();
-                    } else if (pressed_key == 115) { // s == down
-                        animate_back();
-                    }
-                });
+                stage_2R_decision();
             });
         });
     }
