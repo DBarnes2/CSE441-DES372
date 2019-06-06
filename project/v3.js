@@ -15,9 +15,12 @@ $(document).ready(function() {
     // Initially pressed key: 'a'
     pressed_key = 97;
     start_top = 0,
-    left_stop = 0,
-    top_stop = 0,
-    last_option = ""; 
+    left_stop = 0, 
+    top_stop = 0; 
+
+    // keep track of steps and options
+    // contains arrays of [map_left, map_top, last_stage]
+    var checkpoints = []; 
 
     // audio
     var test_audio = $('audio#test')[0];
@@ -69,16 +72,23 @@ $(document).ready(function() {
             $(".right-select").addClass("selected");
             $(".left-select").removeClass("selected");
         } else if (keyCode == 115) { // s == down 
-            clear();
             pressed_key = 115;
         }
     }
 
-    function animate_back(ask_again) {
+    function animate_back(ask_again = null) {
         // console.log("animate_back");
-        map.animate({left: map_left, top: top_stop}, 1500, function() {
-            map.animate({left: left_stop, top: top_stop}, 1500, function() {
-                ask_again();
+        clear();
+        last_array = checkpoints.pop();
+        last_left = last_array[1];
+        last_top = last_array[2];
+        last_stage = last_array[3];
+        console.log(last_array);
+        map.animate({left: map_left, top: last_top}, 1500, function() {
+            map.animate({left: last_left, top: last_top}, 1500, function() {
+                map_left = last_left;
+                map_top = last_top;
+                last_stage();
             });
         });
     }
@@ -267,7 +277,7 @@ $(document).ready(function() {
 
     function stage_2L_3L() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
+        checkpoints.push(["2L", map_left, map_top, stage_2L]);
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -296,7 +306,7 @@ $(document).ready(function() {
 
     function stage_2L_3R() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
+        checkpoints.push(["2L", map_left, map_top, stage_2L]);
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -324,7 +334,7 @@ $(document).ready(function() {
 
     function stage_2R_3L() {
         clear();
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
+        checkpoints.push(["2R", map_left, map_top, stage_2R]);
         map_left = map_left + left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -353,9 +363,7 @@ $(document).ready(function() {
 
     function stage_2R_3R() {
         clear();
-
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
-
+        checkpoints.push(["2R", map_left, map_top, stage_2R]);
         map_left = map_left - left_distance_2;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             map_top = map_top + up_distance;
@@ -389,12 +397,12 @@ $(document).ready(function() {
     function stage_2L() {
         clear();
         //$('audio#test')[0].play()
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left + left_distance;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
+                console.log(map_left, map_top);
                 show_question(
                     "Do you prefer:",
                     "Cultivating talent",
@@ -418,14 +426,15 @@ $(document).ready(function() {
     }
 
     function stage_2R() {
+        console.log("stage 2r");
         clear();
         //$('audio#test')[0].play()
-        left_stop = map_left; top_stop = map_top; // save checkpoint position
         map_left = map_left - left_distance - 20;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
             map.animate({left: map_left, top: map_top}, 1500, function() {
+                console.log(map_left, map_top);
                 show_question(
                     "How comfortable are you with ambiguity?",
                     "I’d like to work on pre-assigned tasks",
@@ -436,15 +445,12 @@ $(document).ready(function() {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
                     text.hide();
-                    console_pos();
-                    console.log("pressed key is " + pressed_key);
                     if (pressed_key == 97) { // if press 'a'
                         stage_2R_3L();
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3R();
                     } else if (pressed_key == 115) { // s == down
-                        console.log("pressed back!");
-                        animate_back(stage_1_decision);
+                        animate_back();
                     }
                 });
             });
@@ -457,6 +463,8 @@ $(document).ready(function() {
 
     function stage_1_decision() {
         console.log("stage 1");
+        console.log(map_left, map_top);
+        checkpoints.push(["1", map_left, map_top, stage_1_decision]); // save checkpoint position
         show_question(
             "In company do you: ",
             "initiate conversation",
@@ -509,7 +517,6 @@ $(document).ready(function() {
 
     function stage_start() {
         intro_audio.play();
-        console.log("Map Top = " + map_top);
         // set this here because it changes by display
         start_top = map_top;
         $(document).keypress(function (event) {
