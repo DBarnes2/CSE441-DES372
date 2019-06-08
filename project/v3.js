@@ -1,6 +1,6 @@
 // All custom jQuery will go here
 $(document).ready(function() {
-    const up_distance = 1323;
+    const up_distance = 1223;
     const left_distance = 2132;
     const left_distance_2 = 1345;
     const left_distance_3 = 545;
@@ -446,7 +446,7 @@ $(document).ready(function() {
         console.log("stage 2r");
         clear();
         //$('audio#test')[0].play()
-        map_left = map_left - left_distance - 20;
+        map_left = map_left - left_distance - 12;
         map.animate({left: map_left, top: map_top}, 1500, function() {
             //$('audio#test')[0].play()
             map_top = map_top + up_distance;
