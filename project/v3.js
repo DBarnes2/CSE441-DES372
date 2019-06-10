@@ -93,32 +93,38 @@ $(document).ready(function() {
 
     // Replay screen
     function replay() {
-        $("#replay_screen").html('<img class="endscreen" src="8-1.png" id="8a"><img class="endscreen" src="8-1-1.png" id="8b"><img class="endscreen" src="8-1-2.png" id="8c">');
-        $("#8a").fadeIn(function() {
-            $("#8b").show();
-            $(this).delay(2000).fadeOut();
-            setTimeout(function() {
-                $("#8c").show();
-                $("#8b").delay(2000).fadeOut();
-            }, 4000);
-        });
+        $("#replay_screen").html('<img class="endscreen" src="8-1.png" id="ra"><img class="endscreen" src="8-1-1.png" id="rb"><img class="endscreen" src="8-1-2.png" id="rc"><img class="endscreen" src="8-1-3.png" id="rd">');
+        $("#ra").fadeIn();
         $(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             //$(document).unbind('keypress');
             text.hide();
             if (event.keyCode == 119) { // if press 'w'
-                clear();
+                $("#ra").fadeOut();
                 $(".endscreen").fadeOut();
                 setTimeout(function() {
-                    map_left = -4363;
-                    map_top = start_top;
-                    //map_top = -0;
-                    map.css('left', map_left + 'px');
-                    map.css('top', map_top + 'px');
-                    stage_1();
-                }, 500);
+                    $("#rb").fadeIn().delay(2000).fadeOut();
+                    // $(".endscreen").fadeOut();
+                    $("#replay_screen").css("background-color", "#053249");
+                    setTimeout(function() {
+                        $("#rc").fadeIn().delay(3000).fadeOut();
+                        setTimeout(function() {
+                            $("#rd").fadeIn().delay(3000).fadeOut();
+                            clear();
+                            map_left = -4363;
+                            map_top = start_top;
+                            //map_top = -0;
+                            map.css('left', map_left + 'px');
+                            map.css('top', map_top + 'px');
+                            setTimeout(function() {
+                                stage_1();
+                            }, 4500);
+                        }, 3000);
+                    }, 2000);
+                }, 1000);
             }
         });
+        
     }
 
     //
@@ -493,6 +499,7 @@ $(document).ready(function() {
     }
 
     function stage_1() {
+        $("#replay_screen").css("background-color", "transparent");
         clear();
         last_option = "";
         map_top = map_top + up_distance + stage_1_offset;
@@ -505,6 +512,7 @@ $(document).ready(function() {
                 "1_1"
             );*/
             stage_1_decision();
+            // stage_2L_3L_4L();
         });
 
         // Specific to stage 1, add bubble
