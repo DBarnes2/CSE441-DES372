@@ -1,10 +1,10 @@
 // All custom jQuery will go here
 $(document).ready(function() {
-    const up_distance = 1223;
+    const up_distance = 1323;
     const left_distance = 2132;
     const left_distance_2 = 1345;
     const left_distance_3 = 545;
-    const stage_1_offset = -108;
+    const stage_1_offset = -98;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
     image_1_1 = $("#1_1"),
@@ -497,7 +497,7 @@ $(document).ready(function() {
         last_option = "";
         map_top = map_top + up_distance + stage_1_offset;
         $('#intro').animate({volume: 0.0}, 3000);
-        map.animate({left: map_left, top: map_top}, 3000, function() {
+        map.animate({left: map_left, top: map_top + 24}, 3000, function() {
             /*show_question(
                 "In company do you: ",
                 "initiate conversation",
