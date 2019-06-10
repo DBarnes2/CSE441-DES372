@@ -1,10 +1,10 @@
 // All custom jQuery will go here
 $(document).ready(function() {
     const up_distance = 1323;
-    const left_distance = 2132;
+    const left_distance = 2133;
     const left_distance_2 = 1345;
     const left_distance_3 = 545;
-    const stage_1_offset = -98;
+    const stage_1_offset = -150;
     var arrow = {left: 37, up: 38, right: 39, down: 40 },
     map = $("#map"),
     image_1_1 = $("#1_1"),
@@ -24,6 +24,7 @@ $(document).ready(function() {
     var test_audio = $('audio#test')[0];
     var intro_audio = $('audio#intro')[0];
     var loading_audio = $('audio#loading')[0];
+    var footstep_audio = $('audio#footstep')[0];
 
 
     // This function displays the map's position for debugging!
@@ -111,7 +112,7 @@ $(document).ready(function() {
                         setTimeout(function() {
                             $("#rd").fadeIn().delay(3000).fadeOut();
                             clear();
-                            map_left = -4363;
+                            map_left = -4344;
                             map_top = start_top;
                             //map_top = -0;
                             map.css('left', map_left + 'px');
@@ -285,6 +286,7 @@ $(document).ready(function() {
                     "No",
                     "3_1"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -294,6 +296,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3L_4R();
                     } else if (pressed_key == 115) { // s == down
+                    	$('#footstep').animate({volume: 0.5}, 100);
                         animate_back();
                     }
                 });
@@ -314,6 +317,7 @@ $(document).ready(function() {
                     "Work on an established project",
                     "3_2"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -322,6 +326,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2L_3R_4R();
                     } else if (pressed_key == 115) { // s == down
+                    	$('#footstep').animate({volume: 0.5}, 100);
                         animate_back();
                     }
                 });
@@ -342,6 +347,7 @@ $(document).ready(function() {
                     "Focusing more on the back-end of things",
                     "3_3"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -351,6 +357,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3L_4R();
                     } else if (pressed_key == 115) { // s == down
+                    	$('#footstep').animate({volume: 0.5}, 100);
                         animate_back();
                     }
                 });
@@ -371,6 +378,7 @@ $(document).ready(function() {
                     "Financial Incentives",
                     "3_4"
                 );
+                $('#footstep').animate({volume: 0.0}, 100);
                 $(document).keypress(function (event) {
                     process_keyPress(event.keyCode);
                     //$(document).unbind('keypress');
@@ -380,6 +388,7 @@ $(document).ready(function() {
                     } else if (pressed_key == 100) { // if press 'd'
                         stage_2R_3R_4R();
                     } else if (pressed_key == 115) { // s == down
+                    	$('#footstep').animate({volume: 0.5}, 100);
                         animate_back();
                     }
                 });
@@ -399,15 +408,19 @@ $(document).ready(function() {
             "Finding undiscovered talent",
             "2_1"
         );
+        $('#footstep').animate({volume: 0.0}, 100);
         $(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             //$(document).unbind('keypress');
             text.hide();
             if (pressed_key == 97) { // if press 'a'
+            	$('#footstep').animate({volume: 0.5}, 100);
                 stage_2L_3L();
             } else if (pressed_key == 100) { // if press 'd'
+            	$('#footstep').animate({volume: 0.5}, 100);
                 stage_2L_3R();
             } else if (pressed_key == 115) { // s == down
+            	$('#footstep').animate({volume: 0.5}, 100);
                 animate_back();
             }
         });
@@ -434,15 +447,19 @@ $(document).ready(function() {
             "I prefer to create my own goals",
             "2_2"
         );
+        $('#footstep').animate({volume: 0.0}, 100);
         $(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             //$(document).unbind('keypress');
             text.hide();
             if (pressed_key == 97) { // if press 'a'
+            	$('#footstep').animate({volume: 0.5}, 100);
                 stage_2R_3L();
             } else if (pressed_key == 100) { // if press 'd'
+            	$('#footstep').animate({volume: 0.5}, 100);
                 stage_2R_3R();
             } else if (pressed_key == 115) { // s == down
+            	$('#footstep').animate({volume: 0.5}, 100);
                 animate_back();
             }
         });
@@ -476,6 +493,7 @@ $(document).ready(function() {
             "wait to be approached",
             "1_1"
         );
+        $('#footstep').animate({volume: 0.0}, 100);
         $(document).keypress(function (event) {
             process_keyPress(event.keyCode);
             // choose an option, rn we'll say they chose Left
@@ -484,6 +502,7 @@ $(document).ready(function() {
             if (pressed_key == 97) { // if press 'a'
                 //show_question("", "", "", "1_1_L");
                 //map.animate({}, 1500);
+                $('#footstep').animate({volume: 0.5}, 100);
                 stage_2L();
             } else if (pressed_key == 100) { // if press 'd'
                 //clear();
@@ -492,6 +511,7 @@ $(document).ready(function() {
                 //clear();
                 //show_question("", "", "", "1_1_R");
                 //map.animate({left: map_left, top: map_top}, 3000);
+                $('#footstep').animate({volume: 0.5}, 100);
                 console_pos();
                 stage_2R();
             }
@@ -524,6 +544,8 @@ $(document).ready(function() {
 
     function stage_start() {
         intro_audio.play();
+        footstep_audio.play();
+        $('#footstep').animate({volume: 0.0}, 1);
         // set this here because it changes by display
         start_top = map_top;
         $(document).keypress(function (event) {
